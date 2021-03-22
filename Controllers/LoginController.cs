@@ -19,12 +19,7 @@ namespace Drip.Webapp.Controllers
             _loginRepository = loginRepository;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Login()
+        public IActionResult NewLogin()
         {
             List<User> Users = _loginRepository.GetAllUsers();
 
@@ -36,5 +31,18 @@ namespace Drip.Webapp.Controllers
             return View(viewModel);
         }
 
+        public IActionResult Login(LoginViewModel model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var user = _loginRepository.GetUserName(model.Username, model.Password);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                return View(model);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
