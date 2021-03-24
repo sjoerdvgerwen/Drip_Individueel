@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "EcitAOmL5wjuexAL0FlF1EoiAxpNmN9FV8jwh6MLt0RPQ8p0I7fg45p+uZpM5JFfiWRffRRQ6v1yA609BsLZrw==",
+  "dgSpecHash": "In7bv+4cymx8P9saRvc0JY2kwCm4HeXQEZCCxQIxGTBLzXLCKP6A6/qd1DUo42/7TNtqHl/rMmK4g2pwoO2pPA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sjoerd\\Documents\\S2 Software New\\Individueel\\Individueel Project\\Drip\\Drip.Webapp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sjoerd\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Sjoerd\\.nuget\\packages\\microsoft.aspnet.signalr\\2.4.1\\microsoft.aspnet.signalr.2.4.1.nupkg.sha512",
     "C:\\Users\\Sjoerd\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.4\\microsoft.aspnetcore.cryptography.internal.5.0.4.nupkg.sha512",
     "C:\\Users\\Sjoerd\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.4\\microsoft.aspnetcore.cryptography.keyderivation.5.0.4.nupkg.sha512",
     "C:\\Users\\Sjoerd\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

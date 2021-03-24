@@ -19,7 +19,7 @@ namespace Drip.Webapp.Controllers
             _loginRepository = loginRepository;
         }
 
-        public IActionResult NewLogin()
+        public IActionResult ShowUsers()
         {
             List<User> Users = _loginRepository.GetAllUsers();
 

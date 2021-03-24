@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Drip.Application.Entities;
 using Drip.Database.Repositories;
 using Drip.Application.Interfaces;
+using Drip.Webapp.Hubs;
 
 namespace Drip
 {
@@ -31,8 +32,8 @@ namespace Drip
             services.AddTransient<MySqlConnection>(_ => new MySqlConnection(Configuration["ConnectionStrings:Default"]));
             services.AddTransient<IloginRepository, LoginRepository>(); // maakt instantie van de opgevraagde data
 
-            
 
+            services.AddSignalR();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -65,6 +66,7 @@ namespace Drip
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<CurrentWaterUsageHub>("/currentwaterusagehub");
             });
         }
     }

@@ -30,23 +30,18 @@
       </e>
       <e p="bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">
+        <e p="DashboardController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
         <e p="LoginController.cs" t="Include" />
       </e>
       <e p="Drip.sln" t="IncludeFlat" />
       <e p="Drip.Webapp.csproj" t="IncludeRecursive" />
       <e p="Migrations" t="Include">
-        <e p="20210318122529_Initial-Create.cs" t="Include" />
-        <e p="20210318122529_Initial-Create.Designer.cs" t="Include" />
-        <e p="20210318134527_Start.cs" t="Include" />
-        <e p="20210318134527_Start.Designer.cs" t="Include" />
-        <e p="20210318141426_Test.cs" t="Include" />
-        <e p="20210318141426_Test.Designer.cs" t="Include" />
         <e p="DripWebappContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
+        <e p="CurrentWaterUsageViewModel.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
-        <e p="LoginInputModel.cs" t="Include" />
         <e p="LoginViewModel.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
@@ -69,6 +64,10 @@
       <e p="Views" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />
+        <e p="Dashboard" t="Include">
+          <e p="Index.cshtml" t="Include" />
+          <e p="Index.cshtml.cs" t="Include" />
+        </e>
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
@@ -76,6 +75,8 @@
         <e p="Login" t="Include">
           <e p="Login.cshtml" t="Include" />
           <e p="Registreer.cshtml" t="Include" />
+          <e p="ShowUsers.cshtml" t="Include" />
+          <e p="ShowUsers.cshtml.cs" t="Include" />
         </e>
         <e p="Shared" t="Include">
           <e p="_Layout.cshtml" t="Include" />
@@ -86,9 +87,20 @@
       </e>
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
+          <e p="landing-page.css" t="Include" />
+          <e p="landing-page.min.css" t="Include" />
           <e p="site.css" t="Include" />
         </e>
         <e p="favicon.ico" t="Include" />
+        <e p="img" t="Include">
+          <e p="bg-masthead.jpg" t="Include" />
+          <e p="bg-showcase-1.jpg" t="Include" />
+          <e p="bg-showcase-2.jpg" t="Include" />
+          <e p="bg-showcase-3.jpg" t="Include" />
+          <e p="testimonials-1.jpg" t="Include" />
+          <e p="testimonials-2.jpg" t="Include" />
+          <e p="testimonials-3.jpg" t="Include" />
+        </e>
         <e p="js" t="Include">
           <e p="site.js" t="Include" />
         </e>
@@ -143,6 +155,89 @@
             <e p="jquery.validate.unobtrusive.js" t="Include" />
             <e p="jquery.validate.unobtrusive.min.js" t="Include" />
             <e p="LICENSE.txt" t="Include" />
+          </e>
+        </e>
+        <e p="vendor_landpage" t="Include">
+          <e p="bootstrap" t="Include">
+            <e p="css" t="Include">
+              <e p="bootstrap-grid.css" t="Include" />
+              <e p="bootstrap-grid.css.map" t="Include" />
+              <e p="bootstrap-grid.min.css" t="Include" />
+              <e p="bootstrap-grid.min.css.map" t="Include" />
+              <e p="bootstrap-reboot.css" t="Include" />
+              <e p="bootstrap-reboot.css.map" t="Include" />
+              <e p="bootstrap-reboot.min.css" t="Include" />
+              <e p="bootstrap-reboot.min.css.map" t="Include" />
+              <e p="bootstrap.css" t="Include" />
+              <e p="bootstrap.css.map" t="Include" />
+              <e p="bootstrap.min.css" t="Include" />
+              <e p="bootstrap.min.css.map" t="Include" />
+            </e>
+            <e p="js" t="Include">
+              <e p="bootstrap.bundle.js" t="Include" />
+              <e p="bootstrap.bundle.js.map" t="Include" />
+              <e p="bootstrap.bundle.min.js" t="Include" />
+              <e p="bootstrap.bundle.min.js.map" t="Include" />
+              <e p="bootstrap.js" t="Include" />
+              <e p="bootstrap.js.map" t="Include" />
+              <e p="bootstrap.min.js" t="Include" />
+              <e p="bootstrap.min.js.map" t="Include" />
+            </e>
+          </e>
+          <e p="fontawesome-free" t="Include">
+            <e p="css" t="Include">
+              <e p="all.css" t="Include" />
+              <e p="all.min.css" t="Include" />
+              <e p="brands.css" t="Include" />
+              <e p="brands.min.css" t="Include" />
+              <e p="fontawesome.css" t="Include" />
+              <e p="fontawesome.min.css" t="Include" />
+              <e p="regular.css" t="Include" />
+              <e p="regular.min.css" t="Include" />
+              <e p="solid.css" t="Include" />
+              <e p="solid.min.css" t="Include" />
+              <e p="svg-with-js.css" t="Include" />
+              <e p="svg-with-js.min.css" t="Include" />
+              <e p="v4-shims.css" t="Include" />
+              <e p="v4-shims.min.css" t="Include" />
+            </e>
+            <e p="webfonts" t="Include">
+              <e p="fa-brands-400.eot" t="Include" />
+              <e p="fa-brands-400.svg" t="Include" />
+              <e p="fa-brands-400.ttf" t="Include" />
+              <e p="fa-brands-400.woff" t="Include" />
+              <e p="fa-brands-400.woff2" t="Include" />
+              <e p="fa-regular-400.eot" t="Include" />
+              <e p="fa-regular-400.svg" t="Include" />
+              <e p="fa-regular-400.ttf" t="Include" />
+              <e p="fa-regular-400.woff" t="Include" />
+              <e p="fa-regular-400.woff2" t="Include" />
+              <e p="fa-solid-900.eot" t="Include" />
+              <e p="fa-solid-900.svg" t="Include" />
+              <e p="fa-solid-900.ttf" t="Include" />
+              <e p="fa-solid-900.woff" t="Include" />
+              <e p="fa-solid-900.woff2" t="Include" />
+            </e>
+          </e>
+          <e p="jquery" t="Include">
+            <e p="jquery.js" t="Include" />
+            <e p="jquery.min.js" t="Include" />
+            <e p="jquery.min.map" t="Include" />
+            <e p="jquery.slim.js" t="Include" />
+            <e p="jquery.slim.min.js" t="Include" />
+            <e p="jquery.slim.min.map" t="Include" />
+          </e>
+          <e p="simple-line-icons" t="Include">
+            <e p="css" t="Include">
+              <e p="simple-line-icons.css" t="Include" />
+            </e>
+            <e p="fonts" t="Include">
+              <e p="Simple-Line-Icons.eot" t="Include" />
+              <e p="Simple-Line-Icons.svg" t="Include" />
+              <e p="Simple-Line-Icons.ttf" t="Include" />
+              <e p="Simple-Line-Icons.woff" t="Include" />
+              <e p="Simple-Line-Icons.woff2" t="Include" />
+            </e>
           </e>
         </e>
       </e>

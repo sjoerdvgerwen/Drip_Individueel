@@ -170,3 +170,6 @@ C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\o
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\bin\Debug\net5.0\Pomelo.JsonObject.dll
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Login\ShowUsers.cshtml.g.cs
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\bin\Debug\net5.0\libman.json

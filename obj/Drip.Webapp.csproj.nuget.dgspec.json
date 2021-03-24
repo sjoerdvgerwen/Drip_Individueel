@@ -208,6 +208,10 @@
               "target": "Package",
               "version": "[5.0.4, )"
             },
+            "Microsoft.Aspnet.SignalR": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.4, )"
