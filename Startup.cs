@@ -31,6 +31,8 @@ namespace Drip
             services.AddControllersWithViews();
             services.AddTransient<MySqlConnection>(_ => new MySqlConnection(Configuration["ConnectionStrings:Default"]));
             services.AddTransient<IloginRepository, LoginRepository>(); // maakt instantie van de opgevraagde data
+            services.AddTransient<IDashboardRepository, DashboardRepository>(); 
+            
 
 
             services.AddSignalR();
@@ -64,7 +66,7 @@ namespace Drip
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
                 endpoints.MapHub<CurrentWaterUsageHub>("/currentwaterusagehub");
             });

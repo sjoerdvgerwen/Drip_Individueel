@@ -1,36 +1,77 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
+﻿using Drip.Application.Entities;
+using Drip.Application.Interfaces;
+using Drip.Webapp.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Drip.Webapp.Hubs;
-using Drip.Webapp.Models;
-using Drip.Application.Interfaces;
 
 namespace Drip.Webapp.Controllers
 {
     public class DashboardController : Controller
     {
-        private readonly IHubContext<CurrentWaterUsageHub> _hubContext;
         private readonly IDashboardRepository _dashboardRepository;
-
-        public DashboardController(IHubContext<CurrentWaterUsageHub> hubContext)
-        {
-            _hubContext = hubContext;
-        }
 
         public DashboardController(IDashboardRepository dashboardRepository)
         {
-            _dashboardRepository = dashboardRepository; 
+            _dashboardRepository = dashboardRepository;
         }
 
-
-        public async Task<IActionResult> Index(CurrentWaterUsageViewModel model)
+        public IActionResult Index()
         {
-           await _hubContext.Clients.All.SendAsync("ReceiveMessage", model.Message);
-                return View();
+            return View();
         }
 
+        public IActionResult MonthlyOverview()
+        {
+            List<Month> months = _dashboardRepository.GetAllMonths();
+
+            var ListOfMonths = new MonthlyOverviewViewModel()
+            {
+                Months = months
+            };
+
+            return View(ListOfMonths);
+        }
+
+        public IActionResult GetMonth(Guid MonthID)
+        {
+            Month month = _dashboardRepository.GetMonthDetails(MonthID);
+
+            MonthDetailsViewModel MonthModel = new MonthDetailsViewModel(month);
+
+            return View("GetMonthDetails", MonthModel);
+        }
+
+
+        public IActionResult AddNewMonth()
+        {
+            return View();
+        }
+
+
+        public IActionResult AddMonth (NewMonthViewModel model)
+        {
+            Month newMonth = new Month()
+            {
+                MonthID = Guid.NewGuid(),
+                NameOfMonth = model.NameOfMonth,
+                YearOfMonth = model.YearOfMonth,
+            };
+
+            _dashboardRepository.AddNewMonth(newMonth);
+            
+            return RedirectToAction("MonthlyOverview");
+        }
+
+        public IActionResult DeleteMonth (Guid monthID)
+        {
+            Month selectedMonth = _dashboardRepository.Delete(monthID);
+
+            selectedMonth.MonthID = monthID;
+
+            return RedirectToAction("DeleteProduct", selectedProduct);
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace Drip.Webapp.Controllers
             var user = _loginRepository.GetUserName(model.Username, model.Password);
             if (user == null)
             {
-                ModelState.AddModelError("", "The user name or password provided is incorrect.");
+               ModelState.AddModelError("", "The user name or password provided is incorrect.");
                 return View(model);
             }
 
