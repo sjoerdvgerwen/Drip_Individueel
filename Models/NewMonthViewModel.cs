@@ -12,5 +12,9 @@ namespace Drip.Webapp.Models
         public string NameOfMonth { get; set; }
 
         public int YearOfMonth { get; set; }
+
+        public DateTime StartOfMonth { get; set; }
+
+        public DateTime EndOfMonth { get; set; }
     }
 }

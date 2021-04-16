@@ -2,16 +2,27 @@
 
 <form asp-controller="Dashboard" asp-action="AddMonth">
     <div class="form-group">
-       
+
     </div>
     <div class="form-group">
         <label class="font-size-h6 font-weight-bolder text-dark">Name of Month</label>
-        <input asp-for="NameOfMonth" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" />
+        <input asp-for="NameOfMonth" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="month" />
     </div>
     <div class="form-group">
         <label class="font-size-h6 font-weight-bolder text-dark">Year of Month</label>
-        <input asp-for="YearOfMonth" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" />
+        <input asp-for="YearOfMonth" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="number" />
     </div>
+    <div class="form-group">
+        <label class="font-size-h6 font-weight-bolder text-dark">Year of Month</label>
+        <input asp-for="StartOfMonth" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="date" />
+    </div>
+    <div class="form-group">
+        <label class="font-size-h6 font-weight-bolder text-dark">Year of Month</label>
+        <input asp-for="EndOfMonth" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="date" />
+    </div>
+
+
+
 
     <div class="pb-lg-0 pb-5">
         <button tabindex="1" type="submit" id="kt_shift_submit" class="btn btn-success btn-icon-split">Add New Month</button>

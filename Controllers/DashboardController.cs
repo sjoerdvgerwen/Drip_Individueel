@@ -58,6 +58,8 @@ namespace Drip.Webapp.Controllers
                 MonthID = Guid.NewGuid(),
                 NameOfMonth = model.NameOfMonth,
                 YearOfMonth = model.YearOfMonth,
+                StartOfMonth = model.StartOfMonth,
+                EndOfMonth = model.EndOfMonth   
             };
 
             _dashboardRepository.AddNewMonth(newMonth);
@@ -65,13 +67,23 @@ namespace Drip.Webapp.Controllers
             return RedirectToAction("MonthlyOverview");
         }
 
-        public IActionResult DeleteMonth (Guid monthID)
+
+        public IActionResult DeleteMonth()
         {
-            Month selectedMonth = _dashboardRepository.Delete(monthID);
+            List<Month> months = _dashboardRepository.GetAllMonths();
+
+            var viewModel = new DeleteMonthViewModel { monthsModel = months };
+
+            return View(viewModel);
+        }
+
+        public IActionResult DeleteById (Guid monthID)
+        {
+            Month selectedMonth = _dashboardRepository.DeleteMonth(monthID);
 
             selectedMonth.MonthID = monthID;
 
-            return RedirectToAction("DeleteProduct", selectedProduct);
+            return RedirectToAction("DeleteMonth", selectedMonth);
         }
     }
 }

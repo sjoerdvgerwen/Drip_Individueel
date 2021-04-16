@@ -1,0 +1,10 @@
+﻿@model Drip.Webapp.Models.GetAllIncomesViewModel;
+
+@foreach (var Income in Model.AllIncomes)
+{
+    <tr>
+        <th>
+            @Income.Amount
+        </th>
+    </tr>
+}
