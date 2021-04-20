@@ -9,12 +9,9 @@ namespace Drip.Webapp.Models
     public class GetAllIncomesViewModel
     {
         public List<Income> AllIncomes = new List<Income>();
-        public Guid IncomeId { get; set; }
 
-        public double Amount { get; set; }
+        public List<Expense> AllExpenses = new List<Expense>();
 
-        public DateTime TimeOfIncomeCreation { get; set; }
-
-        public string Description { get; set; }
+        public List<Month> AllMonths = new List<Month>();
     }
 }

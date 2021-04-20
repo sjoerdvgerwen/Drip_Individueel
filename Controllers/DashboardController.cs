@@ -12,15 +12,30 @@ namespace Drip.Webapp.Controllers
     public class DashboardController : Controller
     {
         private readonly IDashboardRepository _dashboardRepository;
+        private readonly IIncomeRepository _incomeRepository;
+        private readonly IExpenseRepository _expenseRepository;
 
-        public DashboardController(IDashboardRepository dashboardRepository)
+        public DashboardController(IDashboardRepository dashboardRepository, IIncomeRepository incomeRepository, IExpenseRepository expenseRepository)
         {
             _dashboardRepository = dashboardRepository;
+            _incomeRepository = incomeRepository;
+            _expenseRepository = expenseRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Income> income = _incomeRepository.GetAllIncomes();
+            List<Expense> expenses = _expenseRepository.GetAllExpenses();
+            List<Month> months = _dashboardRepository.GetAllMonths();
+
+            var viewModel = new GetAllIncomesViewModel()
+            {
+                AllIncomes = income,
+                AllExpenses = expenses,
+                AllMonths = months
+            };
+
+            return View(viewModel);
         }
 
         public IActionResult MonthlyOverview()
@@ -85,5 +100,29 @@ namespace Drip.Webapp.Controllers
 
             return RedirectToAction("DeleteMonth", selectedMonth);
         }
+
+        public IActionResult CustomDateForIncomes()
+        {
+            return View();
+        }
+
+        public IActionResult GetCustomIncomeTimeStamp(CustomIncomeDateViewModel UserDateInput)
+        {
+            Income UserInputIncome = new Income()
+            {
+                StartofPeriod = UserDateInput.StartTime,
+                EndOfPeriod = UserDateInput.EndTime
+            };
+
+            _incomeRepository.GetUserInputIncomes(UserInputIncome);
+            
+            return RedirectToAction("CustomIncomesResult", "Dashboard");
+        }
+
+        public IActionResult CustomIncomesResult()
+        {
+            return View();
+        }
+
     }
 }

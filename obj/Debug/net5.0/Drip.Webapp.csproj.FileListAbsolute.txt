@@ -174,3 +174,5 @@ C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\o
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Expense\AddNewExpense.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Income\AddNewIncome.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Income\GetAllIncomes.cshtml.g.cs
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\CustomDateForIncomes.cshtml.g.cs
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\CustomIncomesResult.cshtml.g.cs
