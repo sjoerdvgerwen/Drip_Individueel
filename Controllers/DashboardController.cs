@@ -28,7 +28,7 @@ namespace Drip.Webapp.Controllers
             List<Expense> expenses = _expenseRepository.GetAllExpenses();
             List<Month> months = _dashboardRepository.GetAllMonths();
 
-            var viewModel = new GetAllIncomesViewModel()
+            var viewModel = new DashboardViewModel()
             {
                 AllIncomes = income,
                 AllExpenses = expenses,
@@ -79,7 +79,7 @@ namespace Drip.Webapp.Controllers
 
             _dashboardRepository.AddNewMonth(newMonth);
             
-            return RedirectToAction("MonthlyOverview");
+            return RedirectToAction("Index");
         }
 
 
@@ -101,28 +101,76 @@ namespace Drip.Webapp.Controllers
             return RedirectToAction("DeleteMonth", selectedMonth);
         }
 
-        public IActionResult CustomDateForIncomes()
+        public IActionResult CustomDateForIncomes(DateTime? startTime, DateTime? endTime)
         {
-            return View();
-        }
+            List<Income> customIncomes = new List<Income>();
 
-        public IActionResult GetCustomIncomeTimeStamp(CustomIncomeDateViewModel UserDateInput)
-        {
-            Income UserInputIncome = new Income()
+            if (startTime.HasValue && endTime.HasValue)
             {
-                StartofPeriod = UserDateInput.StartTime,
-                EndOfPeriod = UserDateInput.EndTime
-            };
+                customIncomes = _incomeRepository.GetBetweenStartAndEndTime(new Income
+                {
+                    StartofPeriod = startTime.Value,
+                    EndOfPeriod = endTime.Value
+                });
+            }
 
-            _incomeRepository.GetUserInputIncomes(UserInputIncome);
-            
-            return RedirectToAction("CustomIncomesResult", "Dashboard");
+            var Model = new CustomIncomeDateViewModel()
+            {
+                Incomes = customIncomes
+            };
+            return View(Model);
         }
 
-        public IActionResult CustomIncomesResult()
+        public IActionResult GetCustomIncomeTimeStamp()
+        {
+
+            return View();
+        }
+
+        public IActionResult CustomIncomesResult(DateTime startTime, DateTime endTime)
+        {
+            
+
+            return View();
+        }
+
+        public IActionResult Chart()
         {
             return View();
         }
+
+        public IActionResult GetIncomeDetails(Guid incomeId)
+        {
+            Income income = _incomeRepository.GetIncomeDetails(incomeId);
+
+            DashboardViewModel model = new DashboardViewModel(income);
+
+            return View("GetIncomeDetails", model);
+        }
+
+        public IActionResult GetExpenseDetails (Guid expenseId)
+        {
+            Expense expense = _expenseRepository.GetExpenseDetails(expenseId);
+
+            DashboardViewModel model = new DashboardViewModel(expense);
+
+            return View("GetExpenseDetails", model);
+        }
+
+        public IActionResult UpdateExpenseAmount(DashboardViewModel model)
+        {
+            _expenseRepository.UpdateExpenseAmount(model.ExpenseId, model.UpdatedExpenseAmount);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult UpdateIncomeAmount(DashboardViewModel model)
+        {
+            _incomeRepository.UpdateIncomeAmount(model.IncomeId, model.UpdatedIncomeAmount);
+
+            return RedirectToAction("Index");
+        }
+
 
     }
 }

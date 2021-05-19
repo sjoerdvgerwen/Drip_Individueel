@@ -1,19 +1,53 @@
 ﻿@model Drip.Webapp.Models.CustomIncomeDateViewModel;
 
-<form asp-controller="Dashboard" asp-action="GetCustomIncomeTimeStamp">
+<form method="get">
     <div class="form-group">
 
     </div>
     <div class="form-group">
-        <label class="font-size-h6 font-weight-bolder text-dark">Name of Month</label>
+        <label class="font-size-h6 font-weight-bolder text-dark">Start of period of incomes</label>
         <input asp-for="StartTime" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="date" />
     </div>
     <div class="form-group">
-        <label class="font-size-h6 font-weight-bolder text-dark">Year of Month</label>
-        <input asp-for="EndTime" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="date" />
+        <label class="font-size-h6 font-weight-bolder text-dark">End of period of incomes</label>
+        <input asp-for="EndTime" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="datetime-local" />
     </div>
 
     <div class="pb-lg-0 pb-5">
-        <button tabindex="1" type="submit" id="kt_shift_submit" class="btn btn-success btn-icon-split">Add New Month</button>
+        <button tabindex="1" type="submit" id="kt_shift_submit" class="btn btn-success btn-icon-split">Get Incomes</button>
     </div>
 </form>
+
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Results</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Description</th> 
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    @foreach (var Income in Model.Incomes)
+                    {
+                        <tr>
+                            <td>€@Math.Round(Income.Amount, 2)</td>
+                            <td>@Income.Description</td>
+                            <td>@Income.TimeOfIncomeCreation</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

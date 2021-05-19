@@ -37,5 +37,13 @@ namespace Drip.Webapp.Controllers
 
             return RedirectToAction("MonthlyOverview", "Dashboard");
         }
+
+        public IActionResult UpdateExpenseAmount(DashboardViewModel model)
+        
+        {
+            _expenseRepository.UpdateExpenseAmount(model.ExpenseId, model.UpdatedExpenseAmount);
+
+            return RedirectToAction("Index", "Dashboard");
+        }
     }
 }

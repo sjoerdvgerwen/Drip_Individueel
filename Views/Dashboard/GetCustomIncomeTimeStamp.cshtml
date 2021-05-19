@@ -1,0 +1,7 @@
+﻿@model Drip.Webapp.Models.CustomIncomeDateViewModel;
+
+@foreach (var income in Model.Incomes)
+{
+    @income.Amount
+        @income.Description
+}

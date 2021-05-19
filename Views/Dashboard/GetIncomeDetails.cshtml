@@ -1,0 +1,37 @@
+﻿@model Drip.Webapp.Models.DashboardViewModel;
+
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Income Details</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">@Html.DisplayFor(model => model.Description)</h6>
+        </div>
+        <div class="card-body">
+
+            <b>Income description</b>
+
+            @Html.DisplayFor(model => model.Amount) &nbsp;
+
+            <b>Income Description</b>
+            @Html.DisplayFor(model => model.Description)
+
+
+            <b>Change Amount</b>
+
+            <th>
+                @using (Html.BeginForm("UpdateIncomeAmount", "Dashboard", FormMethod.Post))
+                {
+        @Html.TextBoxFor(m => m.UpdatedIncomeAmount)
+                        <input type="hidden" asp-for="@Model.IncomeId" />
+
+                                        <p>
+                                            <input class="btn btn-success btn-icon-split" type="submit" value="Set new amount" />
+                                        </p>}
+            </th>
+            </p>
+        </div>
+    </div>
+</div>

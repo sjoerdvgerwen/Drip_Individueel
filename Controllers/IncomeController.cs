@@ -42,12 +42,13 @@ namespace Drip.Webapp.Controllers
         {
             List<Income> income = _incomeRepository.GetAllIncomes();
 
-            var ViewIncomes = new GetAllIncomesViewModel()
+            var ViewIncomes = new DashboardViewModel()
             {
                 AllIncomes = income
             };
 
             return View(ViewIncomes);
         }
+
     }
 }
