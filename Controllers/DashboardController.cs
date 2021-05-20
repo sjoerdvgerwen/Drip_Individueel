@@ -121,24 +121,6 @@ namespace Drip.Webapp.Controllers
             return View(Model);
         }
 
-        public IActionResult GetCustomIncomeTimeStamp()
-        {
-
-            return View();
-        }
-
-        public IActionResult CustomIncomesResult(DateTime startTime, DateTime endTime)
-        {
-            
-
-            return View();
-        }
-
-        public IActionResult Chart()
-        {
-            return View();
-        }
-
         public IActionResult GetIncomeDetails(Guid incomeId)
         {
             Income income = _incomeRepository.GetIncomeDetails(incomeId);
@@ -170,6 +152,23 @@ namespace Drip.Webapp.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult AddIncomeCategory(Guid IncomeId)
+        {
+            List<Income> income  = _incomeRepository.GetAllIncomes();
+
+            AddIncomeCategoryViewModel model = new AddIncomeCategoryViewModel()
+            {
+                AllIncomes = income
+            };
+
+        var Category = model.IncomeCategory;
+
+            
+        return View(model);
+        }
+
+        
 
 
     }

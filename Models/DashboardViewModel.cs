@@ -55,6 +55,7 @@ namespace Drip.Webapp.Models
 
         public Double UpdatedIncomeAmount { get; set; }
 
+        public string IncomeCategory { get; set; }
 
     }
 }

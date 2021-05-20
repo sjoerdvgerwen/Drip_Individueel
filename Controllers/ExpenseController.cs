@@ -33,9 +33,16 @@ namespace Drip.Webapp.Controllers
                 Description = model.Description
             };
 
-            _expenseRepository.AddExpense(expense);
+            Application.Logic.ExpenseLogic _logic = new Application.Logic.ExpenseLogic();
 
-            return RedirectToAction("MonthlyOverview", "Dashboard");
+            if (_logic.IsValueZero(expense.Amount) == true && _logic.IsDescriptionFilledIn(expense.Description) == true)
+            {
+                _expenseRepository.AddExpense(expense);
+            }
+
+            
+
+            return RedirectToAction("Index", "Dashboard");
         }
 
         public IActionResult UpdateExpenseAmount(DashboardViewModel model)

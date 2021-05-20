@@ -1,0 +1,17 @@
+﻿@model Drip.Webapp.Models.AddIncomeCategoryViewModel
+
+<label for="cars">Which category do you want to add ? </label>
+<br />
+<form asp-controller="Dashboard" asp-action="AddIncomeCategory" type="post">
+    <select name="IncomeId">
+        @foreach (var income in Model.AllIncomes)
+        {
+            <option value="@income.IncomeId"> @income.Description</option>
+        }
+    </select>
+
+    <br />
+    @Html.TextBoxFor(m => m.IncomeCategory)
+
+    <button class="btn btn-danger btn-icon-split" type="submit">SUBMIT</button>
+</form>
