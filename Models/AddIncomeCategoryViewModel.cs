@@ -10,8 +10,11 @@ namespace Drip.Webapp.Models
     {
         public List<Income> AllIncomes = new List<Income>();
 
+        public Guid IncomeId { get; set; }
+
         public string IncomeCategory { get; set; }
 
-        public string Description { get; set; }
+        public Guid CategoryId { get; set; }
+
     }
 }

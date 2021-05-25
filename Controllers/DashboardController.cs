@@ -152,24 +152,5 @@ namespace Drip.Webapp.Controllers
 
             return RedirectToAction("Index");
         }
-
-        public IActionResult AddIncomeCategory(Guid IncomeId)
-        {
-            List<Income> income  = _incomeRepository.GetAllIncomes();
-
-            AddIncomeCategoryViewModel model = new AddIncomeCategoryViewModel()
-            {
-                AllIncomes = income
-            };
-
-        var Category = model.IncomeCategory;
-
-            
-        return View(model);
-        }
-
-        
-
-
     }
 }

@@ -25,7 +25,7 @@ namespace Drip.Webapp.Controllers
 
         public IActionResult AddIncome(AddNewIncomeViewModel model)
         {
-            Income expense = new Income()
+            Income income = new Income()
             {
                 IncomeId = Guid.NewGuid(),
                 Amount = model.Amount,
@@ -33,9 +33,45 @@ namespace Drip.Webapp.Controllers
                 Description = model.Description
             };
 
-            _incomeRepository.AddIncome(expense);
+            model.IncomeId = income.IncomeId;
 
-            return RedirectToAction("MonthlyOverview", "Dashboard");
+            _incomeRepository.AddIncome(income);
+
+            return RedirectToAction("AddIncomeCategory", "Income");
+        }
+
+        public IActionResult AddIncomeCategory()
+        {
+            List<Income> income = _incomeRepository.GetAllIncomes();
+
+            AddIncomeCategoryViewModel model = new AddIncomeCategoryViewModel()
+            {
+                AllIncomes = income,
+            };
+
+            return View(model);
+        }
+         
+        public IActionResult AddIncomeCategoryForm(AddNewIncomeViewModel viewModel)
+        {
+            List<Income> income = _incomeRepository.GetAllIncomes();
+
+            Application.Logic.IncomeLogic _logic = new Application.Logic.IncomeLogic();
+
+            AddIncomeCategoryViewModel model = new AddIncomeCategoryViewModel()
+            {
+                CategoryId = Guid.NewGuid(),
+                IncomeId = viewModel.IncomeId,
+                IncomeCategory = viewModel.IncomeCategory,
+                AllIncomes = income
+            };
+
+            if (_logic.IsCategoryFilledIn(viewModel.IncomeCategory))
+            {
+                _incomeRepository.AddCategory(model.CategoryId, model.IncomeId, model.IncomeCategory); ;
+            }
+
+            return RedirectToAction("Index", "Dashboard");
         }
 
         public IActionResult GetAllIncomes()

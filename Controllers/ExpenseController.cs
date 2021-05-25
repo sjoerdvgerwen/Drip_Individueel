@@ -40,13 +40,11 @@ namespace Drip.Webapp.Controllers
                 _expenseRepository.AddExpense(expense);
             }
 
-            
-
             return RedirectToAction("Index", "Dashboard");
         }
 
         public IActionResult UpdateExpenseAmount(DashboardViewModel model)
-        
+
         {
             _expenseRepository.UpdateExpenseAmount(model.ExpenseId, model.UpdatedExpenseAmount);
 

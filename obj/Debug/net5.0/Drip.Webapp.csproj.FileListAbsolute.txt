@@ -176,8 +176,7 @@ C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\o
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Income\GetAllIncomes.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\CustomDateForIncomes.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\CustomIncomesResult.cshtml.g.cs
-C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\chart.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\GetCustomIncomeTimeStamp.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\GetExpenseDetails.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\GetIncomeDetails.cshtml.g.cs
-C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\AddIncomeCategory.cshtml.g.cs
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Income\AddIncomeCategory.cshtml.g.cs

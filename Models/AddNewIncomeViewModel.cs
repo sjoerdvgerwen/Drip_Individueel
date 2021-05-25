@@ -14,5 +14,7 @@ namespace Drip.Webapp.Models
         public DateTime TimeOfIncomeCreation { get; set; }
 
         public string Description { get; set; }
+
+        public string IncomeCategory { get; set; }
     }
 }

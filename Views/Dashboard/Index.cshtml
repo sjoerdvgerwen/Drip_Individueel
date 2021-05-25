@@ -526,6 +526,7 @@
 											<th>Amount</th>
 											<th>Description</th>
 											<th>Date</th>
+											<th>Category</th>
 										</tr>
 									</thead>
 									
@@ -537,6 +538,7 @@
 											<td>€@Math.Round(Income.Amount, 2)</td>
 											<td>@Income.Description</td>
 											<td>@Income.TimeOfIncomeCreation</td>
+											<td>@Income.CategoryName</td>
 											<th>
 												@Html.ActionLink("Change amount", "GetIncomeDetails", "Dashboard", new { incomeId = Income.IncomeId })
 											</th>
