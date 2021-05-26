@@ -51,12 +51,12 @@ namespace Drip.Webapp.Controllers
 
             return View(model);
         }
-         
+        public string Result { get; set; }
         public IActionResult AddIncomeCategoryForm(AddNewIncomeViewModel viewModel)
         {
             List<Income> income = _incomeRepository.GetAllIncomes();
 
-            Application.Logic.IncomeLogic _logic = new Application.Logic.IncomeLogic();
+            
 
             AddIncomeCategoryViewModel model = new AddIncomeCategoryViewModel()
             {
@@ -66,10 +66,7 @@ namespace Drip.Webapp.Controllers
                 AllIncomes = income
             };
 
-            if (_logic.IsCategoryFilledIn(viewModel.IncomeCategory))
-            {
-                _incomeRepository.AddCategory(model.CategoryId, model.IncomeId, model.IncomeCategory); ;
-            }
+            
 
             return RedirectToAction("Index", "Dashboard");
         }

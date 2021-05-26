@@ -77,15 +77,15 @@
 				</a>
 			</li>
 
-			
+
 			<hr class="sidebar-divider">
 
-			
+
 			<div class="sidebar-heading">
-				Money Manager
+				Income & Expenses
 			</div>
 
-			
+
 			<li class="nav-item">
 				<a class="nav-link collapsed" href=@Url.Action("AddNewIncome", "Income")>
 					<i class="fas fa-fw fa-folder"></i>
@@ -93,7 +93,7 @@
 				</a>
 			</li>
 
-			
+
 			<li class="nav-item">
 				<a class="nav-link" href="@Url.Action("AddNewExpense","Expense")>
 					<i class="fas fa-fw fa-chart-area"></i>
@@ -105,7 +105,27 @@
 			<li class="nav-item">
 				<a class="nav-link" href=@Url.Action("CustomDateForIncomes", "Dashboard")>
 					<i class="fas fa-fw fa-table"></i>
-					<span>Wijzig tijdsstip</span>
+					<span>Geld per tijdsstip</span>
+				</a>
+			</li>
+
+			<div class="sidebar-heading">
+				Category
+			</div>
+
+
+			<li class="nav-item">
+				<a class="nav-link collapsed" href=@Url.Action("Create", "Category")>
+					<i class="fas fa-fw fa-folder"></i>
+					<span>Voeg Categorieen toe</span>
+				</a>
+			</li>
+
+
+			<li class="nav-item">
+				<a class="nav-link" href="@Url.Action("Delete","Category")>
+					<i class="fas fa-fw fa-chart-area"></i>
+					<span>Verwijder categorieen</span>
 				</a>
 			</li>
 
@@ -567,14 +587,14 @@
 									<tbody>		
 											@foreach (var Expense in Model.AllExpenses)
 											{
-                                        <tr>
-                                            <td>€@Math.Round(Expense.Amount, 2)</td>
-                                            <td>@Expense.Description</td>
-                                            <td>@Expense.TimeOfExpenseCreation</td>
-                                            <th>
-                                                @Html.ActionLink("Change amount", "GetExpenseDetails", "Dashboard", new { expenseId = Expense.ExpenseId })
-                                            </th>
-                                        </tr>
+										<tr>
+											<td>€@Math.Round(Expense.Amount, 2)</td>
+											<td>@Expense.Description</td>
+											<td>@Expense.TimeOfExpenseCreation</td>
+											<th>
+												@Html.ActionLink("Change amount", "GetExpenseDetails", "Dashboard", new { expenseId = Expense.ExpenseId })
+											</th>
+										</tr>
 									}
 									</tbody>
 								</table>

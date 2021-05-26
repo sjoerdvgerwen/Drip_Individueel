@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Drip.Application\Drip.Application.csproj" />
     <ProjectReference Include="..\Drip.Database\Drip.Database.csproj" />
+    <ProjectReference Include="..\Drip.Domain\Drip.Domain.csproj" />
   </ItemGroup>
 
 </Project>

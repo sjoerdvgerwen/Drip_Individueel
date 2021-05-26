@@ -1,18 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MySqlConnector;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Drip.Application.Entities;
 using Drip.Database.Repositories;
 using Drip.Application.Interfaces;
-
+using Drip.Application.Logic;
 
 namespace Drip
 {
@@ -34,7 +28,8 @@ namespace Drip
             services.AddTransient<IDashboardRepository, DashboardRepository>();
             services.AddTransient<IExpenseRepository, ExpenseRepository>();
             services.AddTransient<IIncomeRepository, IncomeRepository>();
-
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<CategoryLogic>();
 
 
             services.AddSignalR();

@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drip.Application", "..\Drip
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drip.Database", "..\Drip.Database\Drip.Database.csproj", "{BD9D31C9-1225-4E82-AA81-71C3F1F232E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drip.UnitTests", "..\Drip.UnitTests\Drip.UnitTests.csproj", "{75DF7F80-4153-4667-8C40-55B9DE4DF598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drip.Domain", "..\Drip.Domain\Drip.Domain.csproj", "{6D9FCAE8-2715-45CB-B66D-A22483F9868D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{BD9D31C9-1225-4E82-AA81-71C3F1F232E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD9D31C9-1225-4E82-AA81-71C3F1F232E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD9D31C9-1225-4E82-AA81-71C3F1F232E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75DF7F80-4153-4667-8C40-55B9DE4DF598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75DF7F80-4153-4667-8C40-55B9DE4DF598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75DF7F80-4153-4667-8C40-55B9DE4DF598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75DF7F80-4153-4667-8C40-55B9DE4DF598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9FCAE8-2715-45CB-B66D-A22483F9868D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9FCAE8-2715-45CB-B66D-A22483F9868D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9FCAE8-2715-45CB-B66D-A22483F9868D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9FCAE8-2715-45CB-B66D-A22483F9868D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

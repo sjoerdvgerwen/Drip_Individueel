@@ -19,18 +19,6 @@ namespace Drip.Webapp.Controllers
             _loginRepository = loginRepository;
         }
 
-        public IActionResult ShowUsers()
-        {
-            List<User> Users = _loginRepository.GetAllUsers();
-
-            var viewModel = new LoginViewModel
-            {
-                users = Users
-            };
-
-            return View(viewModel);
-        }
-
         public IActionResult Login(LoginViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
