@@ -7,6 +7,7 @@ using MySqlConnector;
 using Drip.Database.Repositories;
 using Drip.Application.Interfaces;
 using Drip.Application.Logic;
+using Drip.Domain.Interfaces;
 
 namespace Drip
 {
@@ -29,6 +30,8 @@ namespace Drip
             services.AddTransient<IExpenseRepository, ExpenseRepository>();
             services.AddTransient<IIncomeRepository, IncomeRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IMonthRepository, MonthRepository>();
+            services.AddTransient<MonthLogic>();
             services.AddTransient<CategoryLogic>();
 
 
