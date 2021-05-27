@@ -187,5 +187,6 @@ C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\b
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Drip.Webapp.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Category\SuccesfullDelete.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Month\Create.cshtml.g.cs
-C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Month\Fail.cshtml.g.cs
-C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Month\Succes.cshtml.g.cs
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Month\Delete.cshtml.g.cs
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Month\SuccesfullCreation.cshtml.g.cs
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Month\SuccesfullDelete.cshtml.g.cs

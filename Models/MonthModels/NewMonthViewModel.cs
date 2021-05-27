@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Drip.Webapp.Models
+namespace Drip.Webapp.Models.MonthModels
 {
     public class NewMonthViewModel
     {
@@ -16,5 +16,7 @@ namespace Drip.Webapp.Models
         public DateTime StartOfMonth { get; set; }
 
         public DateTime EndOfMonth { get; set; }
+
+        public bool ProblemOccured { get; set; }
     }
 }

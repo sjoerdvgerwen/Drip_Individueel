@@ -9,9 +9,5 @@ namespace Drip.Webapp.Models
     public class DeleteMonthViewModel
     {
         public List<Month> monthsModel { get; set; }
-
-        public string NameOfMonth { get; set; }
-
-        public int YearOfMonth { get; set; }
     }
 }

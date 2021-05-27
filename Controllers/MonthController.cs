@@ -1,10 +1,11 @@
 ﻿using Drip.Application.Entities;
-using Drip.Webapp.Models;
+using Drip.Webapp.Models.MonthModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace Drip.Webapp.Controllers
 {
@@ -30,27 +31,40 @@ namespace Drip.Webapp.Controllers
             {
                 if (_logic.CreateMonth(month))
                 {
-                    return RedirectToAction("Succes");
+                    return RedirectToAction("SuccesfullCreation", model);
                 }
                 else
                 {
-                    return RedirectToAction("Fail");
+                    model.ProblemOccured = true;
                 }
             }
 
-            return View();
+            return View(model);
         }
 
-        public IActionResult Fail()
+        public IActionResult Delete(DeleteMonthViewModel model)
         {
+            List<Month> months = _logic.GetAllCategories();
 
-            return View();
+            model.Months = months;
+
+            if (model.MonthId != Guid.Empty)
+            {
+                _logic.DeleteMonth(model.MonthId);
+                return RedirectToAction("SuccesfullDelete", model);
+            }
+
+            return View(model); 
         }
 
-        public IActionResult Succes()
+        public IActionResult SuccesfullCreation(NewMonthViewModel model)
         {
+            return View(model);
+        }
 
-            return View();
+        public IActionResult SuccesfullDelete(DeleteMonthViewModel model)
+        {
+            return View(model);
         }
     }
 }

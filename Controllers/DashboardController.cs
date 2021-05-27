@@ -59,30 +59,6 @@ namespace Drip.Webapp.Controllers
             return View("GetMonthDetails", MonthModel);
         }
 
-
-        public IActionResult AddNewMonth()
-        {
-            return View();
-        }
-
-
-        public IActionResult AddMonth (NewMonthViewModel model)
-        {
-            Month newMonth = new Month()
-            {
-                MonthID = Guid.NewGuid(),
-                NameOfMonth = model.NameOfMonth,
-                YearOfMonth = model.YearOfMonth,
-                StartOfMonth = model.StartOfMonth,
-                EndOfMonth = model.EndOfMonth   
-            };
-
-            _dashboardRepository.AddNewMonth(newMonth);
-            
-            return RedirectToAction("Index");
-        }
-
-
         public IActionResult DeleteMonth()
         {
             List<Month> months = _dashboardRepository.GetAllMonths();
