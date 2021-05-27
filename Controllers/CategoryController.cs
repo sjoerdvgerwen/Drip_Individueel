@@ -20,31 +20,47 @@ namespace Drip.Webapp.Controllers
         }
 
 
-        public IActionResult Create()
+        public IActionResult Create(CreateCategoryViewModel model)
         {
-            return View();
+            if (model.CategoryName != null)
+            {
+                if (_logic.CreateCategory(model.CategoryName))
+                {
+                    return RedirectToAction("SuccesfullCreation", model);
+                }
+                else
+                {
+                    model.ProblemOccured = true;
+                }
+            }
+
+            return View(model);
         }
 
-        public IActionResult CreateCategory(CreateCategoryViewModel model)
+        public IActionResult SuccesfullCreation(CreateCategoryViewModel model)
         {
-            _logic.CreateCategory(model.CategoryName);
-                
-            return Redirect("SuccesfullCreation");
+            return View(model);
         }
 
-        public IActionResult SuccesfullCreation()
+        public IActionResult Delete(DeleteCategoryViewModel model)
         {
-            return View();
+            List<Category> _categories = _logic.GetAllCategories();
+
+            model.Categories = _categories;
+            
+
+            if(model.CategoryId != Guid.Empty)
+            {
+                _logic.DeleteCategory(model.CategoryId);
+                return RedirectToAction("SuccesfullDelete", model);
+            }
+
+            return View(model);
         }
 
-        public IActionResult Delete()
+        public IActionResult SuccesfullDelete(DeleteCategoryViewModel model)
         {
-            return View();
-        }
-
-        public IActionResult DeleteCategory()
-        {
-            return View();
+            return View(model);
         }
     }
 }
