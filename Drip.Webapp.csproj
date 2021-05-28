@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -22,6 +22,10 @@
     <ProjectReference Include="..\Drip.Application\Drip.Application.csproj" />
     <ProjectReference Include="..\Drip.Database\Drip.Database.csproj" />
     <ProjectReference Include="..\Drip.Domain\Drip.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\ExpenseModels\" />
   </ItemGroup>
 
 </Project>

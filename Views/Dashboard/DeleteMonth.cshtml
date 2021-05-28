@@ -1,4 +1,4 @@
-﻿@model Drip.Webapp.Models.DeleteMonthViewModel;
+﻿@model Drip.Webapp.Models.MonthModels.DeleteMonthViewModel;
 
 
 
@@ -6,7 +6,7 @@
 <label for="cars">Which month do you want to delete ? </label>
 <form asp-controller="Dashboard" asp-action="DeleteById" type="post">
     <select name="MonthID">
-        @foreach (var month in Model.monthsModel)
+        @foreach (var month in Model.Months)
         {
 <option value="@month.MonthID"> @month.NameOfMonth</option>}
     </select>

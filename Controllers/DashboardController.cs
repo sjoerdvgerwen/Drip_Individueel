@@ -1,6 +1,7 @@
 ﻿using Drip.Application.Entities;
 using Drip.Application.Interfaces;
 using Drip.Webapp.Models;
+using Drip.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -57,24 +58,6 @@ namespace Drip.Webapp.Controllers
             MonthDetailsViewModel MonthModel = new MonthDetailsViewModel(month);
 
             return View("GetMonthDetails", MonthModel);
-        }
-
-        public IActionResult DeleteMonth()
-        {
-            List<Month> months = _dashboardRepository.GetAllMonths();
-
-            var viewModel = new DeleteMonthViewModel { monthsModel = months };
-
-            return View(viewModel);
-        }
-
-        public IActionResult DeleteById (Guid monthID)
-        {
-            Month selectedMonth = _dashboardRepository.DeleteMonth(monthID);
-
-            selectedMonth.MonthID = monthID;
-
-            return RedirectToAction("DeleteMonth", selectedMonth);
         }
 
         public IActionResult CustomDateForIncomes(DateTime? startTime, DateTime? endTime)

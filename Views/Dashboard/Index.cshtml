@@ -512,14 +512,32 @@
 								</div>
 								<!-- Card Body -->
 								<div class="card-body">
-										@foreach (var Months in Model.AllMonths)
-										{
-											<h4 class="small font-weight-bold">
-												@Months.NameOfMonth
-												
-											</h4>
-										}
-									</div>
+									<table>
+										<thead>
+											<tr>
+												<th>Month </th>
+												<th>Year</th>
+												<th>View Expenses & Incomes</th>
+											</tr>
+										</thead>
+
+
+										<tbody>
+											@foreach (var Month in Model.AllMonths)
+											{
+												<tr>
+													<td>@Month.NameOfMonth</td>
+													<td>@Month.YearOfMonth</td>
+													
+													<th>
+														@Html.ActionLink("Details", "GetMonthDetails", "Month", new { MonthId = Month.MonthID })
+													</th>
+												</tr>
+											}
+										</tbody>
+									</table>
+								   
+								</div>
 									<div class="mt-4 text-center small">
 										<span class="mr-2">v  
 											<i class="fas fa-circle text-primary"></i> Positieve maand

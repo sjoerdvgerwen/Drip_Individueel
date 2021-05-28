@@ -1,4 +1,5 @@
 ﻿using Drip.Application.Entities;
+using Drip.Webapp.Models;
 using Drip.Webapp.Models.MonthModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -64,6 +65,23 @@ namespace Drip.Webapp.Controllers
 
         public IActionResult SuccesfullDelete(DeleteMonthViewModel model)
         {
+            return View(model);
+        }
+
+        public IActionResult GetMonthDetails(Guid MonthId)
+        {
+            Month month = _logic.GetMonthDetails(MonthId);
+
+             List<Income> monthIncomes = _logic.GetMonthIncomes(month.StartOfMonth, month.EndOfMonth);
+
+            List<Expense> monthExpenses = _logic.GetMonthExpenses(month.StartOfMonth, month.EndOfMonth);
+
+            DashboardViewModel model = new DashboardViewModel()
+            {
+                MonthIncomes = monthIncomes,
+                MonthExpenses = monthExpenses
+            };
+
             return View(model);
         }
     }

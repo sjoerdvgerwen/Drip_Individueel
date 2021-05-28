@@ -14,6 +14,10 @@ namespace Drip.Webapp.Models
 
         public List<Month> AllMonths = new List<Month>();
 
+        public List<Income> MonthIncomes = new List<Income>();
+
+        public List<Expense> MonthExpenses = new List<Expense>();
+
         public DashboardViewModel(Income income)
         {
             IncomeId = income.IncomeId;
@@ -35,6 +39,20 @@ namespace Drip.Webapp.Models
 
         }
 
+        public string IncomeDescription { get; set; }
+
+        public double IncomeAmount { get; set; }
+
+        public DateTime IncomeCreation { get; set; }
+
+        public string ExpenseDescription { get; set; }
+
+        public double ExpenseAmount { get; set; }
+
+        public DateTime ExpenseCreation { get; set; }
+
+        public Guid MonthId { get; set; }
+
         public Guid IncomeId { get; set; }
 
         public string Description { get; set; }
@@ -45,9 +63,7 @@ namespace Drip.Webapp.Models
 
         public Guid ExpenseId { get; set; }
 
-        public string ExpenseDescription { get; set; }
-
-        public Double ExpenseAmount { get; set; }
+        
 
         public DateTime TimeOfExpense { get; set; }
 

@@ -9,6 +9,7 @@ using Drip.Application.Interfaces;
 using Drip.Application.Logic;
 using Drip.Domain.Interfaces;
 
+
 namespace Drip
 {
     public class Startup
@@ -33,6 +34,7 @@ namespace Drip
             services.AddTransient<IMonthRepository, MonthRepository>();
             services.AddTransient<MonthLogic>();
             services.AddTransient<CategoryLogic>();
+            services.AddTransient<IncomeLogic>();
 
 
             services.AddSignalR();
