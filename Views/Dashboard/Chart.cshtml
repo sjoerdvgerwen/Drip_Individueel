@@ -1,0 +1,38 @@
+﻿@model Drip.Webapp.Models.DashboardModels.ChartViewModel;
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js" />
+
+<body>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <body>
+        <div class="container">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <script>
+            let myChart = document.getElementById('myChart').getContext('2d');
+
+            let barChart = new Chart(myChart, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Bedrag',
+                        data: [
+                            @{double MonthAmount = 0.00;}
+                            @foreach (var month in Model.IncomesPerMonth)
+                            {
+                                MonthAmount = month.Amount;
+                            };
+                        ]
+                    }]
+                },
+                options: {}
+            });
+        </script>
+    </body>
+</body>

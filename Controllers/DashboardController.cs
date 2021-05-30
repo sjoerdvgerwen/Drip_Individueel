@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Drip.Webapp.Models.DashboardModels;
 
 namespace Drip.Webapp.Controllers
 {
@@ -110,6 +111,19 @@ namespace Drip.Webapp.Controllers
             _incomeRepository.UpdateIncomeAmount(model.IncomeId, model.UpdatedIncomeAmount);
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Chart()
+        {
+            List<Month> months =_dashboardRepository.GetAllMonths();
+
+            List<Income> incomeData = _dashboardRepository.GetChartIncomeData(months);
+
+            ChartViewModel model = new ChartViewModel();
+
+            model.IncomesPerMonth = incomeData;
+            
+            return View(model);
         }
     }
 }

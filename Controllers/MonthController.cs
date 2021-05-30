@@ -84,5 +84,10 @@ namespace Drip.Webapp.Controllers
 
             return View(model);
         }
+
+        public IActionResult Chart()
+        {
+            return View();
+        }
     }
 }
