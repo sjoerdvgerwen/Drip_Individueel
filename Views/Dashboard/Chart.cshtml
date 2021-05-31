@@ -9,30 +9,54 @@
     </div>
 
     <body>
-        <div class="container">
-            <canvas id="myChart"></canvas>
-        </div>
+        
+        @{ 
+            int Jan = Convert.ToInt32(Model.IncomesPerMonth[0].Amount);
+            int Feb = Convert.ToInt32(Model.IncomesPerMonth[1].Amount);
+            int Mar = Convert.ToInt32(Model.IncomesPerMonth[2].Amount);
+            int Apr = Convert.ToInt32(Model.IncomesPerMonth[3].Amount);
+            int Mei = Convert.ToInt32(Model.IncomesPerMonth[4].Amount);
+            int Jun = Convert.ToInt32(Model.IncomesPerMonth[5].Amount);
+            int Jul = Convert.ToInt32(Model.IncomesPerMonth[6].Amount);
+            int Aug = Convert.ToInt32(Model.IncomesPerMonth[7].Amount);
+            int Sep = Convert.ToInt32(Model.IncomesPerMonth[8].Amount);
+            int Okt = Convert.ToInt32(Model.IncomesPerMonth[9].Amount);
+            int Nov = Convert.ToInt32(Model.IncomesPerMonth[10].Amount);
+            int Dec = Convert.ToInt32(Model.IncomesPerMonth[11].Amount);
 
-        <script>
-            let myChart = document.getElementById('myChart').getContext('2d');
+        }
+        
+            <div class="container">
+                <canvas id="myChart"></canvas>
+            </div>
 
-            let barChart = new Chart(myChart, {
-                type: 'bar',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
-                    datasets: [{
-                        label: 'Bedrag',
-                        data: [
-                            @{double MonthAmount = 0.00;}
-                            @foreach (var month in Model.IncomesPerMonth)
-                            {
-                                MonthAmount = month.Amount;
-                            };
-                        ]
-                    }]
-                },
-                options: {}
-            });
-        </script>
-    </body>
+            <script>
+                let myChart = document.getElementById('myChart').getContext('2d');
+
+                let barChart = new Chart(myChart, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
+                        datasets: [{
+                            label: 'Bedrag',
+                            data: [
+                                @Jan,
+                                @Feb,
+                                @Mar,
+                                @Apr,
+                                @Mei,
+                                @Jun,
+                                @Jul,
+                                @Aug,
+                                @Sep,
+                                @Okt,
+                                @Nov,
+                                @Dec
+                            ]
+                        }]
+                    },
+                    options: {}
+                });
+            </script>
+        </body>
 </body>

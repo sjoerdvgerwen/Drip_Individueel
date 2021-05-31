@@ -9,5 +9,7 @@ namespace Drip.Webapp.Models.DashboardModels
     public class ChartViewModel
     {
         public List<Income> IncomesPerMonth { get; set; }
+
+        
     }
 }
