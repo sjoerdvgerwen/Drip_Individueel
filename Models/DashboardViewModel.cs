@@ -18,6 +18,8 @@ namespace Drip.Webapp.Models
 
         public List<Expense> MonthExpenses = new List<Expense>();
 
+        public List<Income> IncomesPerMonth { get; set; }
+
         public DashboardViewModel(Income income)
         {
             IncomeId = income.IncomeId;

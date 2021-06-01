@@ -52,13 +52,11 @@ namespace Drip.Webapp.Controllers
         {
             List<Category> _categories = _CLogic.GetAllCategories();
             
-
-
             model.Categories = _categories;
 
             if (model.CategoryId != Guid.Empty)
             {
-                _CLogic.AddIncomeToCategory(model.CategoryId, model.IncomeId, model.CategoryName);
+                _CLogic.AddIncomeToCategory(model.CategoryId, model.IncomeId);
                 return RedirectToAction("Succes");
             }
             return View(model);

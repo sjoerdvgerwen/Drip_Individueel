@@ -9,7 +9,6 @@
     </div>
 
     <body>
-        
         @{ 
             int Jan = Convert.ToInt32(Model.IncomesPerMonth[0].Amount);
             int Feb = Convert.ToInt32(Model.IncomesPerMonth[1].Amount);
@@ -23,7 +22,6 @@
             int Okt = Convert.ToInt32(Model.IncomesPerMonth[9].Amount);
             int Nov = Convert.ToInt32(Model.IncomesPerMonth[10].Amount);
             int Dec = Convert.ToInt32(Model.IncomesPerMonth[11].Amount);
-
         }
         
             <div class="container">
@@ -38,7 +36,7 @@
                     data: {
                         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
                         datasets: [{
-                            label: 'Bedrag',
+                            label: 'Positieve maand',
                             data: [
                                 @Jan,
                                 @Feb,
@@ -52,7 +50,12 @@
                                 @Okt,
                                 @Nov,
                                 @Dec
-                            ]
+                            ],
+                            backgroundColor: 'rgb(57,95,207)',
+                            borderWidth:1,
+                            borderColor:'#777',
+                            hoverBorderWidth:3,
+                            hoverBorderColor:'#000'
                         }]
                     },
                     options: {}

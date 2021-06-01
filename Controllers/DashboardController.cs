@@ -29,9 +29,14 @@ namespace Drip.Webapp.Controllers
             List<Income> income = _incomeRepository.GetAllIncomes();
             List<Expense> expenses = _expenseRepository.GetAllExpenses();
             List<Month> months = _dashboardRepository.GetAllMonths();
+            List<Income> incomeData = _dashboardRepository.GetChartIncomeData(months);
+
+
+            
 
             var viewModel = new DashboardViewModel()
             {
+                IncomesPerMonth = incomeData,
                 AllIncomes = income,
                 AllExpenses = expenses,
                 AllMonths = months

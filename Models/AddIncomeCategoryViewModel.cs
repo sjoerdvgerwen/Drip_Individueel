@@ -15,6 +15,5 @@ namespace Drip.Webapp.Models
         public string IncomeCategory { get; set; }
 
         public Guid CategoryId { get; set; }
-
     }
 }

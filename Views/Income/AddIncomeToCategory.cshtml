@@ -344,13 +344,13 @@
                             <form asp-controller="Income" asp-action="AddIncomeToCategory">
                                 <div class="form-group">
                                     <label class="font-size-h6 font-weight-bolder text-dark">Month Name</label>
-                                    <select name="CategoryName">
+                                    <select name="CategoryId">
                                         @foreach (var category in Model.Categories)
                                         {
                                             <option value="@category.CategoryId"> @category.CategoryName</option>
                                         }
-
                                     </select>
+                                    <input type="hidden" value=@Model.IncomeId asp-for="IncomeId" />
                                 </div>
 
                                 <div class="pb-lg-0 pb-5">
