@@ -24,8 +24,4 @@
     <ProjectReference Include="..\Drip.Domain\Drip.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\ExpenseModels\" />
-  </ItemGroup>
-
 </Project>

@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 using Drip.Application.Interfaces;
 using Drip.Application.Entities;
 using Drip.Webapp.Models;
+using Drip.Application.Logic;
+using Drip.Webapp.Models.ExpenseModels;
 
 namespace Drip.Webapp.Controllers
 {
     public class ExpenseController : Controller
     {
 
-        public readonly IExpenseRepository _expenseRepository;
+        private ExpenseLogic _logic;
+        private CategoryLogic _CLogic;
 
-        public ExpenseController(IExpenseRepository expenseRepository)
+        public ExpenseController(ExpenseLogic logic, CategoryLogic Clogic)
         {
-            _expenseRepository = expenseRepository;
-        }
-        public IActionResult AddNewExpense()
-        {
-            return View();
+            _logic = logic;
+            _CLogic = Clogic;
         }
 
         public IActionResult AddExpense(AddNewExpenseViewModel model)
@@ -33,22 +33,76 @@ namespace Drip.Webapp.Controllers
                 Description = model.Description
             };
 
-            Application.Logic.ExpenseLogic _logic = new Application.Logic.ExpenseLogic();
+            model.ExpenseId = expense.ExpenseId;
 
-            if (_logic.IsValueZero(expense.Amount) == true && _logic.IsDescriptionFilledIn(expense.Description) == true)
+            if (model.Description != null)
             {
-                _expenseRepository.AddExpense(expense);
+                if (_logic.AddExpense(expense))
+                {
+                    return RedirectToAction("AddExpenseToCategory", model);
+                }
+                else
+                {
+                    return RedirectToAction("Fail");
+                }
             }
-
-            return RedirectToAction("Index", "Dashboard");
+        return View();
         }
 
-        public IActionResult UpdateExpenseAmount(DashboardViewModel model)
-
+        public IActionResult AddExpenseToCategory(AddNewExpenseViewModel model)
         {
-            _expenseRepository.UpdateExpenseAmount(model.ExpenseId, model.UpdatedExpenseAmount);
+            List<Category> _categories = _CLogic.GetAllCategories();
 
-            return RedirectToAction("Index", "Dashboard");
+            model.Categories = _categories;
+
+            if (model.CategoryId != Guid.Empty)
+            {
+                _CLogic.AddExpenseToCategory(model.CategoryId, model.ExpenseId);
+                return RedirectToAction("Succes", model);
+            }
+            return View(model);
         }
+
+        public IActionResult Succes(AddNewExpenseViewModel model)
+        {
+            return View(model);
+        }
+
+
+
+
+
+        //public IActionResult AddNewExpense()
+        //{
+        //    return View();
+        //}
+
+        //public IActionResult AddExpense(AddNewExpenseViewModel model)
+        //{
+        //    Expense expense = new Expense()
+        //    {
+        //        ExpenseId = Guid.NewGuid(),
+        //        Amount = model.Amount,
+        //        TimeOfExpenseCreation = DateTime.Now,
+        //        Description = model.Description
+        //    };
+
+        //    Application.Logic.ExpenseLogic _logic = new Application.Logic.ExpenseLogic();
+
+        //    if (_logic.IsValueZero(expense.Amount) == true && _logic.IsDescriptionFilledIn(expense.Description) == true)
+        //    {
+        //        _expenseRepository.AddExpense(expense);
+        //    }
+
+        //    return RedirectToAction("Index", "Dashboard");
+        //}
+
+        //public IActionResult UpdateExpenseAmount(DashboardViewModel model)
+
+        //{
+        //    _expenseRepository.UpdateExpenseAmount(model.ExpenseId, model.UpdatedExpenseAmount);
+
+        //    return RedirectToAction("Index", "Dashboard");
+        //}
     }
 }

@@ -1,4 +1,4 @@
-﻿@model Drip.Webapp.Models.IncomeModels.AddIncomeViewModel;
+﻿@model Drip.Webapp.Models.ExpenseModels.AddNewExpenseViewModel;
 
 @{ Layout = null; }
 
@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Drip - Succesfull creation</title>
+    <title>Drip - Add Expense</title>
 
     <!-- Custom fonts for this template-->
     <link href="~/vendor/fontawesome-free/css/all.min.css rel="stylesheet" type="text/css">
@@ -30,6 +30,113 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href=@Url.Action("Index","Dashboard")>
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Drip - Add Expense</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href=@Url.Action("Index", "Dashboard")>
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Maanden
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href=@Url.Action("AddNewMonth", "Dashboard")>
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Voeg maand toe</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href=@Url.Action("DeleteMonth", "Dashboard")>
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Verwijder maand</span>
+                </a>
+            </li>
+
+
+            <hr class="sidebar-divider">
+
+
+            <div class="sidebar-heading">
+                Income & Expenses
+            </div>
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href=@Url.Action("AddNewIncome", "Income")>
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Voeg inkosten toe</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("AddNewExpense","Expense")>
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Voeg uitgaven toe</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href=@Url.Action("CustomDateForIncomes", "Dashboard")>
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Geld per tijdsstip</span>
+                </a>
+            </li>
+
+            <div class="sidebar-heading">
+                Category
+            </div>
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href=@Url.Action("Create", "Category")>
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Voeg Categorieen toe</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Action("Delete","Category")>
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Verwijder categorieen</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -44,7 +151,18 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-
+                    <!-- Topbar Search -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                   aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -216,67 +334,76 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Succes</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Create Expense</h1>
 
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <div class="card-body">
-                                <h1>SUCCESFULLY CREATED INCOME</h1>
-                                <b><h2>@Model.</h2>&nbsp;<H2>@Model.Description</H2> </b>
 
-                                <a class="nav-link" href=@Url.Action("Index", "Dashboard")>
-                                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                                    <span>Go to Dashboard</span>
-                                </a>
-                            </div>
+                        <div class="card-body">
+                            <label for="cars">Fill in the requered data</label>
+                            <form asp-controller="Expense" asp-action="AddExpense">
+                                <div class="form-group">
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-size-h6 font-weight-bolder text-dark">Amount in EUR (€)</label>
+                                    <input asp-for="Amount" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-size-h6 font-weight-bolder text-dark">Description of the expense</label>
+                                    <input asp-for="Description" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" />
+                                </div>
+
+                                <div class="pb-lg-0 pb-5">
+                                    <button tabindex="1" type="submit" id="kt_shift_submit" class="btn btn-success btn-icon-split">Add Expense</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">�</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="login.html">Logout</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+            <!-- Bootstrap core JavaScript-->
+            <script src="~/vendor/jquery/jquery.min.js"></script>
 
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">�</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="~/vendor/jquery/jquery.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="~/js/sb-admin-2.min.js"></script>
+            >
 
-        <!-- Core plugin JavaScript-->
-        <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="~/vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="~/js/sb-admin-2.min.js"></script>
-        >
-
-        <!-- Page level plugins -->
-        <script src="~/vendor/chart.js/Chart.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="~/js/demo/chart-area-demo.js"></script>
-        <script src="~/js/demo/chart-pie-demo.js"></script>
+            <!-- Page level custom scripts -->
+            <script src="~/js/demo/chart-area-demo.js"></script>
+            <script src="~/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
