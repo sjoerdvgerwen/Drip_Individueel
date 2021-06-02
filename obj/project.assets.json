@@ -2172,7 +2172,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Drip.Database": "1.0.0",
           "Drip.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.6",
           "Microsoft.EntityFrameworkCore.Design": "2.2.6",

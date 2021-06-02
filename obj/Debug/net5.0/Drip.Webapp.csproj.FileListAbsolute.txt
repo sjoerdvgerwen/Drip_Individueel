@@ -166,12 +166,10 @@ C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\b
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\Index.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Login\ShowUsers.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\bin\Debug\net5.0\libman.json
-C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\MonthlyOverview.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\GetMonthDetails.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\AddNewMonth.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\DeleteMonth.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Income\GetAllIncomes.cshtml.g.cs
-C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\CustomDateForIncomes.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\CustomIncomesResult.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\GetCustomIncomeTimeStamp.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\GetExpenseDetails.cshtml.g.cs
@@ -195,3 +193,4 @@ C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\o
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Expense\AddExpenseToCategory.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Expense\AddExpense.cshtml.g.cs
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Expense\Succes.cshtml.g.cs
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Dashboard\CustomValues.cshtml.g.cs

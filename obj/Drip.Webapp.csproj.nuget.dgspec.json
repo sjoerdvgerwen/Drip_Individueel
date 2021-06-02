@@ -31,9 +31,6 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Sjoerd\\Documents\\S2 Software New\\Individueel\\Individueel Project\\Drip.Database\\Drip.Database.csproj": {
-                "projectPath": "C:\\Users\\Sjoerd\\Documents\\S2 Software New\\Individueel\\Individueel Project\\Drip.Database\\Drip.Database.csproj"
-              },
               "C:\\Users\\Sjoerd\\Documents\\S2 Software New\\Individueel\\Individueel Project\\Drip.Domain\\Drip.Domain.csproj": {
                 "projectPath": "C:\\Users\\Sjoerd\\Documents\\S2 Software New\\Individueel\\Individueel Project\\Drip.Domain\\Drip.Domain.csproj"
               }

@@ -36,6 +36,7 @@ namespace Drip
             services.AddTransient<CategoryLogic>();
             services.AddTransient<IncomeLogic>();
             services.AddTransient<ExpenseLogic>();
+            services.AddTransient<DashboardLogic>();
 
 
             services.AddSignalR();

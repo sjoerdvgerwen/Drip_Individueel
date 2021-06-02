@@ -10,6 +10,8 @@ namespace Drip.Webapp.Models.DashboardModels
     {
         public List<Income> IncomesPerMonth { get; set; }
 
-        
+        public List<Expense> ExpensesPerMonth { get; set; }
+
+        public List<Double> Result { get; set; }
     }
 }

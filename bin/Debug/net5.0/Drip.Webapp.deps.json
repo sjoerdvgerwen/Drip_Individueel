@@ -1965,7 +1965,6 @@
       },
       "Drip.Application/1.0.0": {
         "dependencies": {
-          "Drip.Database": "1.0.0",
           "Drip.Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.4",
           "Microsoft.EntityFrameworkCore.Design": "5.0.4",

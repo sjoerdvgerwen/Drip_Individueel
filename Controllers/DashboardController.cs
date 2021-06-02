@@ -13,122 +13,108 @@ namespace Drip.Webapp.Controllers
 {
     public class DashboardController : Controller
     {
-        private readonly IDashboardRepository _dashboardRepository;
-        private readonly IIncomeRepository _incomeRepository;
-        private readonly IExpenseRepository _expenseRepository;
+        private Drip.Application.Logic.DashboardLogic _logic;
 
-        public DashboardController(IDashboardRepository dashboardRepository, IIncomeRepository incomeRepository, IExpenseRepository expenseRepository)
+        public DashboardController(Drip.Application.Logic.DashboardLogic logic)
         {
-            _dashboardRepository = dashboardRepository;
-            _incomeRepository = incomeRepository;
-            _expenseRepository = expenseRepository;
+            _logic = logic;
         }
 
         public IActionResult Index()
         {
-            List<Income> income = _incomeRepository.GetAllIncomes();
-            List<Expense> expenses = _expenseRepository.GetAllExpenses();
-            List<Month> months = _dashboardRepository.GetAllMonths();
-            List<Income> incomeData = _dashboardRepository.GetChartIncomeData(months);
-
-
-            
-
-            var viewModel = new DashboardViewModel()
-            {
-                IncomesPerMonth = incomeData,
-                AllIncomes = income,
-                AllExpenses = expenses,
-                AllMonths = months
-            };
+            DashboardViewModel viewModel = new DashboardViewModel();
+            viewModel.AllExpenses = _logic.GetAllExpenses();
+            viewModel.AllIncomes = _logic.GetAllIncomes();
+            viewModel.ChartResultsPerMonth = _logic.BalancePerMonth();
+            viewModel.AllMonths = _logic.GetAllMonths();
 
             return View(viewModel);
         }
 
-        public IActionResult MonthlyOverview()
+        public IActionResult CustomValues(DateTime? startTime, DateTime? endTime)
         {
-            List<Month> months = _dashboardRepository.GetAllMonths();
-
-            var ListOfMonths = new MonthlyOverviewViewModel()
-            {
-                Months = months
-            };
-
-            return View(ListOfMonths);
-        }
-
-        public IActionResult GetMonth(Guid MonthID)
-        {
-            Month month = _dashboardRepository.GetMonthDetails(MonthID);
-
-            MonthDetailsViewModel MonthModel = new MonthDetailsViewModel(month);
-
-            return View("GetMonthDetails", MonthModel);
-        }
-
-        public IActionResult CustomDateForIncomes(DateTime? startTime, DateTime? endTime)
-        {
-            List<Income> customIncomes = new List<Income>();
+            ValuesBetweenTimesViewModel viewModel = new ValuesBetweenTimesViewModel();
 
             if (startTime.HasValue && endTime.HasValue)
             {
-                customIncomes = _incomeRepository.GetBetweenStartAndEndTime(new Income
+                viewModel.Incomes = _logic.GetIncomeBetweenCustomTimes(new Income
                 {
                     StartofPeriod = startTime.Value,
                     EndOfPeriod = endTime.Value
                 });
-            }
 
-            var Model = new CustomIncomeDateViewModel()
-            {
-                Incomes = customIncomes
-            };
-            return View(Model);
+                viewModel.Expenses = _logic.GetExpensesBetweenCustomTimes(new Expense
+                {
+                    StartOfPeriod = startTime.Value,
+                    EndOfPeriod = endTime.Value
+                });
+            }
+            return View(viewModel);
         }
 
-        public IActionResult GetIncomeDetails(Guid incomeId)
+
+        public IActionResult IncomeDetails(Guid incomeId)
         {
             Income income = _incomeRepository.GetIncomeDetails(incomeId);
+            _logic.Get
 
             DashboardViewModel model = new DashboardViewModel(income);
 
             return View("GetIncomeDetails", model);
         }
 
-        public IActionResult GetExpenseDetails (Guid expenseId)
-        {
-            Expense expense = _expenseRepository.GetExpenseDetails(expenseId);
+        //public IActionResult GetExpenseDetails (Guid expenseId)
+        //{
+        //    Expense expense = _expenseRepository.GetExpenseDetails(expenseId);
 
-            DashboardViewModel model = new DashboardViewModel(expense);
+        //    DashboardViewModel model = new DashboardViewModel(expense);
 
-            return View("GetExpenseDetails", model);
-        }
+        //    return View("GetExpenseDetails", model);
+        //}
 
-        public IActionResult UpdateExpenseAmount(DashboardViewModel model)
-        {
-            _expenseRepository.UpdateExpenseAmount(model.ExpenseId, model.UpdatedExpenseAmount);
+        //public IActionResult UpdateExpenseAmount(DashboardViewModel model)
+        //{
+        //    _expenseRepository.UpdateExpenseAmount(model.ExpenseId, model.UpdatedExpenseAmount);
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
-        public IActionResult UpdateIncomeAmount(DashboardViewModel model)
-        {
-            _incomeRepository.UpdateIncomeAmount(model.IncomeId, model.UpdatedIncomeAmount);
+        //public IActionResult UpdateIncomeAmount(DashboardViewModel model)
+        //{
+        //    _incomeRepository.UpdateIncomeAmount(model.IncomeId, model.UpdatedIncomeAmount);
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
-        public IActionResult Chart()
-        {
-            List<Month> months =_dashboardRepository.GetAllMonths();
+        //public IActionResult Chart()
+        //{
+        //    List<Month> months =_dashboardRepository.GetAllMonths();
 
-            List<Income> incomeData = _dashboardRepository.GetChartIncomeData(months);
+        //    List<Income> incomeData = _dashboardRepository.GetChartIncomeData(months);
 
-            ChartViewModel model = new ChartViewModel();
+        //    List<Expense> expenseData = _dashboardRepository.GetChartExpenseData(months);
 
-            model.IncomesPerMonth = incomeData;
-            
-            return View(model);
-        }
+        //    ChartViewModel model = new ChartViewModel();
+
+        //    model.IncomesPerMonth = incomeData;
+        //    model.ExpensesPerMonth = expenseData;
+
+        //    List<Double> resultPerMonth = new List<Double>();
+
+        //    for (int i = 0; i < incomeData.Count;)
+        //    {
+        //        for (int j = 0; j < expenseData.Count;)
+        //        {
+        //            Double Results = incomeData[i].Amount - expenseData[i].Amount;
+        //            resultPerMonth.Add(Results);
+        //            i++;
+        //            j++;
+        //        }
+        //    }
+
+        //    model.Result = resultPerMonth;
+
+        //    return View(model);
+        //}
     }
 }
