@@ -22,7 +22,7 @@
                 @using (Html.BeginForm("UpdateExpenseAmount", "Dashboard", FormMethod.Post))
                 {
                 @Html.TextBoxFor(m => m.UpdatedExpenseAmount)
-                <input type="show" asp-for="@Model.ExpenseId" />
+                <input type="hidden" asp-for="@Model.ExpenseId" />
 
                 <p>
                    <input class="btn btn-success btn-icon-split" type="submit" value="Set new amount" />

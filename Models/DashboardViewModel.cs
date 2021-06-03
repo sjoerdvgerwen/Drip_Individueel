@@ -43,20 +43,9 @@ namespace Drip.Webapp.Models
         {
 
         }
-
-        public string IncomeDescription { get; set; }
-
-        public double IncomeAmount { get; set; }
-
-        public DateTime IncomeCreation { get; set; }
-
         public string ExpenseDescription { get; set; }
 
         public double ExpenseAmount { get; set; }
-
-        public DateTime ExpenseCreation { get; set; }
-
-        public Guid MonthId { get; set; }
 
         public Guid IncomeId { get; set; }
 
@@ -68,15 +57,10 @@ namespace Drip.Webapp.Models
 
         public Guid ExpenseId { get; set; }
 
-        
-
         public DateTime TimeOfExpense { get; set; }
 
         public Double UpdatedExpenseAmount { get; set; }
 
         public Double UpdatedIncomeAmount { get; set; }
-
-        public string IncomeCategory { get; set; }
-
     }
 }

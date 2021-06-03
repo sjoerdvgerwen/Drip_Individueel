@@ -13,9 +13,9 @@ namespace Drip.Webapp.Controllers
 {
     public class DashboardController : Controller
     {
-        private Drip.Application.Logic.DashboardLogic _logic;
+        private Application.Logic.DashboardLogic _logic;
 
-        public DashboardController(Drip.Application.Logic.DashboardLogic logic)
+        public DashboardController(Application.Logic.DashboardLogic logic)
         {
             _logic = logic;
         }
@@ -52,69 +52,37 @@ namespace Drip.Webapp.Controllers
             return View(viewModel);
         }
 
-
         public IActionResult IncomeDetails(Guid incomeId)
         {
-            Income income = _incomeRepository.GetIncomeDetails(incomeId);
-            _logic.Get
+            
+            Income income = _logic.GetIncomeDetails(incomeId);
 
             DashboardViewModel model = new DashboardViewModel(income);
 
-            return View("GetIncomeDetails", model);
+            return View(model);
         }
 
-        //public IActionResult GetExpenseDetails (Guid expenseId)
-        //{
-        //    Expense expense = _expenseRepository.GetExpenseDetails(expenseId);
+        public IActionResult ExpenseDetails (Guid expenseId)
+        {
+            Expense expense = _logic.GetExpenseDetails(expenseId);
+                
+            DashboardViewModel model = new DashboardViewModel(expense);
 
-        //    DashboardViewModel model = new DashboardViewModel(expense);
+            return View(model);
+        }
 
-        //    return View("GetExpenseDetails", model);
-        //}
+        public IActionResult UpdateExpenseAmount(DashboardViewModel model)
+        {
+            _logic.UpdateExpenseAmount(model.ExpenseId, model.UpdatedExpenseAmount);
 
-        //public IActionResult UpdateExpenseAmount(DashboardViewModel model)
-        //{
-        //    _expenseRepository.UpdateExpenseAmount(model.ExpenseId, model.UpdatedExpenseAmount);
+            return RedirectToAction("Index");
+        }
 
-        //    return RedirectToAction("Index");
-        //}
+        public IActionResult UpdateIncomeAmount(DashboardViewModel model)
+        {
+            _logic.UpdateIncomeAmount(model.IncomeId, model.UpdatedIncomeAmount); 
 
-        //public IActionResult UpdateIncomeAmount(DashboardViewModel model)
-        //{
-        //    _incomeRepository.UpdateIncomeAmount(model.IncomeId, model.UpdatedIncomeAmount);
-
-        //    return RedirectToAction("Index");
-        //}
-
-        //public IActionResult Chart()
-        //{
-        //    List<Month> months =_dashboardRepository.GetAllMonths();
-
-        //    List<Income> incomeData = _dashboardRepository.GetChartIncomeData(months);
-
-        //    List<Expense> expenseData = _dashboardRepository.GetChartExpenseData(months);
-
-        //    ChartViewModel model = new ChartViewModel();
-
-        //    model.IncomesPerMonth = incomeData;
-        //    model.ExpensesPerMonth = expenseData;
-
-        //    List<Double> resultPerMonth = new List<Double>();
-
-        //    for (int i = 0; i < incomeData.Count;)
-        //    {
-        //        for (int j = 0; j < expenseData.Count;)
-        //        {
-        //            Double Results = incomeData[i].Amount - expenseData[i].Amount;
-        //            resultPerMonth.Add(Results);
-        //            i++;
-        //            j++;
-        //        }
-        //    }
-
-        //    model.Result = resultPerMonth;
-
-        //    return View(model);
-        //}
+            return RedirectToAction("Index");
+        }
     }
 }

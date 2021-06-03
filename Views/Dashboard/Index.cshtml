@@ -645,7 +645,7 @@
 											<td>@Income.TimeOfIncomeCreation</td>
 											<td>@Income.CategoryName</td>
 											<th>
-												@Html.ActionLink("Change amount", "GetIncomeDetails", "Dashboard", new { incomeId = Income.IncomeId })
+												@Html.ActionLink("Change amount", "IncomeDetails", "Dashboard", new { incomeId = Income.IncomeId })
 											</th>
 										</tr>
 										}
@@ -679,7 +679,7 @@
 											<td>@Expense.TimeOfExpenseCreation</td>
 											<td>@Expense.CategoryName</td>
 											<th>
-												@Html.ActionLink("Change amount", "GetExpenseDetails", "Dashboard", new { expenseId = Expense.ExpenseId })
+												@Html.ActionLink("Change amount", "ExpenseDetails", "Dashboard", new { expenseId = Expense.ExpenseId })
 											</th>
 										</tr>
 									}

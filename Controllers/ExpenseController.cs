@@ -72,29 +72,7 @@ namespace Drip.Webapp.Controllers
 
 
 
-        //public IActionResult AddNewExpense()
-        //{
-        //    return View();
-        //}
 
-        //public IActionResult AddExpense(AddNewExpenseViewModel model)
-        //{
-        //    Expense expense = new Expense()
-        //    {
-        //        ExpenseId = Guid.NewGuid(),
-        //        Amount = model.Amount,
-        //        TimeOfExpenseCreation = DateTime.Now,
-        //        Description = model.Description
-        //    };
-
-        //    Application.Logic.ExpenseLogic _logic = new Application.Logic.ExpenseLogic();
-
-        //    if (_logic.IsValueZero(expense.Amount) == true && _logic.IsDescriptionFilledIn(expense.Description) == true)
-        //    {
-        //        _expenseRepository.AddExpense(expense);
-        //    }
-
-        //    return RedirectToAction("Index", "Dashboard");
         //}
 
         //public IActionResult UpdateExpenseAmount(DashboardViewModel model)

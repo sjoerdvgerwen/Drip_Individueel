@@ -8,6 +8,7 @@ using Drip.Database.Repositories;
 using Drip.Application.Interfaces;
 using Drip.Application.Logic;
 using Drip.Domain.Interfaces;
+using Drip.UnitTests;
 
 
 namespace Drip
@@ -37,6 +38,7 @@ namespace Drip
             services.AddTransient<IncomeLogic>();
             services.AddTransient<ExpenseLogic>();
             services.AddTransient<DashboardLogic>();
+            services.AddTransient<CategoryTests>();
 
 
             services.AddSignalR();
