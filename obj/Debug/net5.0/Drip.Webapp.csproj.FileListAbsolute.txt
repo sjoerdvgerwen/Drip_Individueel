@@ -282,3 +282,4 @@ C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\b
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\bin\Debug\net5.0\Drip.UnitTests.pdb
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\bin\Debug\net5.0\Moq.dll
+C:\Users\Sjoerd\Documents\S2 Software New\Individueel\Individueel Project\Drip\obj\Debug\net5.0\Razor\Views\Error\Error.cshtml.g.cs

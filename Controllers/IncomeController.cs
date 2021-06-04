@@ -71,41 +71,5 @@ namespace Drip.Webapp.Controllers
         {
             return View();
         }
-
-        //public string Result { get; set; }
-        //public IActionResult AddIncomeCategoryForm(AddNewIncomeViewModel viewModel)
-        //{
-        //    List<Income> income = _incomeRepository.GetAllIncomes();
-
-        //Application.Logic.CategoryLogic _logic = new Application.Logic.CategoryLogic();
-
-        //    AddIncomeCategoryViewModel model = new AddIncomeCategoryViewModel()
-        //    {
-        //        CategoryId = Guid.NewGuid(),
-        //        IncomeId = viewModel.IncomeId,
-        //        IncomeCategory = viewModel.IncomeCategory,
-        //       AllIncomes = income
-        //    };
-
-        //if (_logic.IsCategoryFilledIn(viewModel.IncomeCategory) && _logic.DoesCategoryHaveValue(viewModel.IncomeId))
-        //{
-        //    _incomeRepository.AddCategory(model.CategoryId, model.IncomeId, model.IncomeCategory);
-        //}
-
-        //    return RedirectToAction("Index", "Dashboard");
-        // }
-
-        //public IActionResult GetAllIncomes()
-        //{
-        //    List<Income> income = _logic.GetAllIncomes();
-        //
-        //    var ViewIncomes = new DashboardViewModel()
-        //    {
-        //       AllIncomes = income
-        //   };
-
-        //   return View(ViewIncomes);
-        // }
-
     }
 }

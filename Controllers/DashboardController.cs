@@ -19,7 +19,6 @@ namespace Drip.Webapp.Controllers
         {
             _logic = logic;
         }
-
         public IActionResult Index()
         {
             DashboardViewModel viewModel = new DashboardViewModel();
@@ -51,7 +50,6 @@ namespace Drip.Webapp.Controllers
             }
             return View(viewModel);
         }
-
         public IActionResult IncomeDetails(Guid incomeId)
         {
             
