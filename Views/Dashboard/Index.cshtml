@@ -487,54 +487,19 @@
 								<div class="card-body">
                                     <div class="chart-area" id="chart">
                                         <canvas id="myChart" style="display: block; box-sizing: border-box; height: 518px; width: 1037px;"></canvas>
-
-                                        @{
-                                            List<int> MonthBalance = new List<int>();
-
-                                            int Jan = Convert.ToInt32(Model.ChartResultsPerMonth[0]);
-                                            int Feb = Convert.ToInt32(Model.ChartResultsPerMonth[1]);
-                                            int Mar = Convert.ToInt32(Model.ChartResultsPerMonth[2]);
-                                            int Apr = Convert.ToInt32(Model.ChartResultsPerMonth[3]);
-                                            int Mei = Convert.ToInt32(Model.ChartResultsPerMonth[4]);
-                                            int Jun = Convert.ToInt32(Model.ChartResultsPerMonth[5]);
-
-
-                                            MonthBalance.Add(Jan);
-                                            MonthBalance.Add(Feb);
-                                            MonthBalance.Add(Mar);
-                                            MonthBalance.Add(Apr);
-                                            MonthBalance.Add(Mei);
-                                            MonthBalance.Add(Jun);
-                                        }
-
-                                        @{
-                                            string t1 = "100";
-                                            string t2 = "200";
-                                            string t3 = "300";
-                                            string t4 = "400";
-                                            string t5 = "500";
-                                            string t6 = "600";
-
-
-                                        }
-
                                     <script>
                                             let myChart = document.getElementById('myChart').getContext('2d');
 
 										let barChart = new Chart(myChart, {
 											type: 'bar',
 											data: {
-												labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
+												labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug'],
 												datasets: [{
 													label: 'Positieve maand',
 													data: [
-														@Jan,
-														@Feb,
-														@Mar,
-														@Apr,
-														@Mei,
-														@Jun
-                                                      ],
+														@foreach(var item in Model.ChartResultsPerMonth){
+                                                        }
+		                                                 ],
                                                         backgroundColor: 'rgb(57,95,207)',
                                                         borderWidth: 1,
                                                         borderColor: '#777',
