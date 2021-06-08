@@ -40,8 +40,6 @@ namespace Drip
             services.AddTransient<DashboardLogic>();
             services.AddTransient<CategoryTests>();
 
-
-            services.AddSignalR();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

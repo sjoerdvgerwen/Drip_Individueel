@@ -52,7 +52,6 @@ namespace Drip.Webapp.Controllers
         }
         public IActionResult IncomeDetails(Guid incomeId)
         {
-            
             Income income = _logic.GetIncomeDetails(incomeId);
 
             DashboardViewModel model = new DashboardViewModel(income);
