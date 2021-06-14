@@ -31,7 +31,7 @@ namespace Drip.Webapp.Controllers
 
             if (model.NameOfMonth != null)
             {
-                if (_logic.CreateMonth(month))
+                if (_logic.CanMonthBeCreated(month))
                 {
                     return RedirectToAction("SuccesfullCreation", model);
                 }

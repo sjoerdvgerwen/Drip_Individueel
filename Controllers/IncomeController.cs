@@ -24,27 +24,56 @@ namespace Drip.Webapp.Controllers
 
         public IActionResult AddIncome(AddIncomeViewModel model)
         {
-            Income income = new Income()
-            {
-                IncomeId = Guid.NewGuid(),
-                Amount = model.Amount,
-                TimeOfIncomeCreation = DateTime.Now,
-                Description = model.Description
-            };
+            bool IsChecked = model.IsChecked;
+            DateTime CreationTime = model.CreationTime;
 
-            model.IncomeId = income.IncomeId;
-
-            if (model.Description != null) 
+            if (model.Description != null)
             {
-                if (_logic.AddIncome(income)) 
+                if (model.IsChecked == true && _logic.OnlyCheckBoxIsChecked(IsChecked, CreationTime))
                 {
-                    return RedirectToAction("AddIncomeToCategory", model);
-                }
-                else
-                {
-                    return RedirectToAction("Fail");
+                    Income income = new Income()
+                    {
+                        IncomeId = Guid.NewGuid(),
+                        Amount = model.Amount,
+                        TimeOfIncomeCreation = DateTime.Now,
+                        Description = model.Description
+                    };
+                    model.IncomeId = income.IncomeId;
+                    if (_logic.AddIncome(income))
+                    {
+                        return RedirectToAction("AddIncomeToCategory", model);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Fail");
+                    }
                 }
             }
+
+            if(model.Description != null) {
+                if (_logic.OnlyCustomTimeStampIsFilledIn(IsChecked, CreationTime))
+                {
+                    Income customTimeIncome = new Income()
+                    {
+                        IncomeId = Guid.NewGuid(),
+                        Amount = model.Amount,
+                        TimeOfIncomeCreation = model.CreationTime,
+                        Description = model.Description
+                    };
+                    model.IncomeId = customTimeIncome.IncomeId;
+                    if (_logic.AddIncome(customTimeIncome))
+                    {
+                        return RedirectToAction("AddIncomeToCategory", model);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Fail");
+                    }
+                }
+            }
+
+            
+
             return View();
         }
 

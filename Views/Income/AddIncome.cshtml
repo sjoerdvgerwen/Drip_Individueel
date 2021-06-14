@@ -342,9 +342,7 @@
                             <label for="cars">Fill in the requered data</label>
 
                             <form asp-controller="Income" asp-action="AddIncome">
-                                <div class="form-group">
 
-                                </div>
                                 <div class="form-group">
                                     <label class="font-size-h6 font-weight-bolder text-dark">Amount in EUR (€)</label>
                                     <input asp-for="Amount" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" />
@@ -353,6 +351,17 @@
                                     <label class="font-size-h6 font-weight-bolder text-dark">Description of the income</label>
                                     <input asp-for="Description" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" />
                                 </div>
+
+                                <div class="form-group">
+                                    <input asp-for="IsChecked" class="form-check-input" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="font-size-h6 font-weight-bolder text-dark">Amount in EUR (€)</label>
+                                    <input asp-for="CreationTime" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="date" />
+                                </div>
+
+
 
                                 <div class="pb-lg-0 pb-5">
                                     <button tabindex="1" type="submit" id="kt_shift_submit" class="btn btn-success btn-icon-split">Add Income</button>
