@@ -122,7 +122,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Delete","Category")>
+                <a class="nav-link" href=@Url.Action("Delete","Category")>
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Verwijder categorieen</span>
                 </a>
@@ -334,7 +334,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Get the incomes and values between selected timeframes.</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Get the incomes and expenses values between selected timeframes.</h1>
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <form method="get">
@@ -361,7 +361,7 @@
 
                 @if (Model.Incomes.Count != 0 && Model.Expenses.Count != 0)
                 {
-            <h1 class="h3 mb-4 text-gray-800">Results</h1>
+            <h1 class="h3 mb-4 text-gray-800">Incomes</h1>
 
                             <div class="card shadow mb-4">
                                 <div class="card-body">
@@ -389,7 +389,7 @@
                                 </div>
                             </div>
 
-                                            <h1 class="h3 mb-4 text-gray-800">Results</h1>
+                                            <h1 class="h3 mb-4 text-gray-800">Expenses</h1>
 
                                                             <div class="card shadow mb-4">
                                                                 <div class="card-body">

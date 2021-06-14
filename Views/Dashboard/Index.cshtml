@@ -97,7 +97,7 @@
 
 
 			<li class="nav-item">
-				<a class="nav-link" href="@Url.Action("AddNewExpense","Expense")>
+				<a class="nav-link" href=@Url.Action("AddExpense","Expense")>
 					<i class="fas fa-fw fa-chart-area"></i>
 					<span>Voeg uitgaven toe</span>
 				</a>
@@ -105,7 +105,7 @@
 
 
 			<li class="nav-item">
-				<a class="nav-link" href=@Url.Action("CustomDateForIncomes", "Dashboard")>
+				<a class="nav-link" href=@Url.Action("CustomValues", "Dashboard")>
 					<i class="fas fa-fw fa-table"></i>
 					<span>Geld per tijdsstip</span>
 				</a>
@@ -586,9 +586,9 @@
 					<div class="row">
 						<div class="col-lg-6 mb-4">
 							<div class="card shadow mb-4">
-								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">Latest Added Incomes </h6>
-								</div>
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Latest Added Incomes </h6>
+                                </div>
 								<table>
 									<thead>
 										<tr>
