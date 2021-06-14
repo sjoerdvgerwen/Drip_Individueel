@@ -71,9 +71,6 @@ namespace Drip.Webapp.Controllers
                     }
                 }
             }
-
-            
-
             return View();
         }
 

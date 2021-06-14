@@ -353,6 +353,17 @@
                                     <input asp-for="Description" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="text" />
                                 </div>
 
+                                
+                                <div class="form-group">
+                                    <label class="font-size-h6 font-weight-bolder text-dark">Is the Expense date today?</label>
+                                    <input asp-for="IsChecked" class="form-check-input" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="font-size-h6 font-weight-bolder text-dark">Is the expense made in the past? Please fill in the correct date.</label>
+                                    <input asp-for="CreationTime" tabindex="1" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" type="date" />
+                                </div>
+
                                 <div class="pb-lg-0 pb-5">
                                     <button tabindex="1" type="submit" id="kt_shift_submit" class="btn btn-success btn-icon-split">Add Expense</button>
                                 </div>

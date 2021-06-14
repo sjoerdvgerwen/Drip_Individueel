@@ -25,28 +25,55 @@ namespace Drip.Webapp.Controllers
 
         public IActionResult AddExpense(AddNewExpenseViewModel model)
         {
-            Expense expense = new Expense()
-            {
-                ExpenseId = Guid.NewGuid(),
-                Amount = model.Amount,
-                TimeOfExpenseCreation = DateTime.Now,
-                Description = model.Description
-            };
-
-            model.ExpenseId = expense.ExpenseId;
+            bool IsChecked = model.IsChecked;
+            DateTime CreationTime = model.CreationTime;
 
             if (model.Description != null)
             {
-                if (_logic.AddExpense(expense))
+                if (model.IsChecked == true && _logic.OnlyCheckBoxIsChecked(IsChecked, CreationTime))
                 {
-                    return RedirectToAction("AddExpenseToCategory", model);
-                }
-                else
-                {
-                    return RedirectToAction("Fail");
+                    Expense expense = new Expense()
+                    {
+                        ExpenseId = Guid.NewGuid(),
+                        Amount = model.Amount,
+                        TimeOfExpenseCreation = DateTime.Now,
+                        Description = model.Description
+                    };
+                    model.ExpenseId = expense.ExpenseId;
+                    if (_logic.AddExpense(expense))
+                    {
+                        return RedirectToAction("AddExpenseToCategory", model);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Fail");
+                    }
                 }
             }
-        return View();
+
+            if (model.Description != null)
+            {
+                if (_logic.OnlyCustomTimeStampIsFilledIn(IsChecked, CreationTime))
+                {
+                    Expense customTimeExpense = new Expense()
+                    {
+                        ExpenseId = Guid.NewGuid(),
+                        Amount = model.Amount,
+                        TimeOfExpenseCreation = model.CreationTime,
+                        Description = model.Description
+                    };
+                    model.ExpenseId = customTimeExpense.ExpenseId;
+                    if (_logic.AddExpense(customTimeExpense))
+                    {
+                        return RedirectToAction("AddExpenseToCategory", model);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Fail");
+                    }
+                }
+            }
+            return View();
         }
 
         public IActionResult AddExpenseToCategory(AddNewExpenseViewModel model)
