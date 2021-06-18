@@ -8,23 +8,23 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-    <title>Drip - Dashboard</title>
+	<title>Drip - Dashboard</title>
 
-    <!-- Custom fonts for this template-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js" />
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <!-- Custom styles for this template-->
-    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+	<!-- Custom fonts for this template-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.0/chart.min.js" />
+	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		  rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+	<!-- Custom styles for this template-->
+	<link href="~/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
@@ -91,7 +91,7 @@
 			<li class="nav-item">
 				<a class="nav-link collapsed" href=@Url.Action("AddIncome", "Income")>
 					<i class="fas fa-fw fa-folder"></i>
-					<span>Voeg inkosten toe</span>
+					<span>Voeg inkomsten toe</span>
 				</a>
 			</li>
 
@@ -107,7 +107,7 @@
 			<li class="nav-item">
 				<a class="nav-link" href=@Url.Action("CustomValues", "Dashboard")>
 					<i class="fas fa-fw fa-table"></i>
-					<span>Geld per tijdsstip</span>
+					<span>Inkomsten en uitgaven tussen een tijdsstip</span>
 				</a>
 			</li>
 
@@ -125,7 +125,7 @@
 
 
 			<li class="nav-item">
-				<a class="nav-link" href="@Url.Action("Delete","Category")>
+				<a class="nav-link" href=@Url.Action("Delete","Category")>
 					<i class="fas fa-fw fa-chart-area"></i>
 					<span>Verwijder categorieen</span>
 				</a>
@@ -364,7 +364,7 @@
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-												Totale Uitgaven
+												Totale Uitgaven dit jaar
 											</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">
 												@{ double TotalAmount = 0.00;}
@@ -390,7 +390,7 @@
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-												Totale inkomsten
+												Totale inkomsten dit jaar
 											</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">
 												@{ double TotalAmountIncomes = 0.00;}
@@ -417,7 +417,7 @@
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-												Voeg inkomsten toe
+												Totale inkomstposten dit jaar
 											</div>
 
 											<div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -441,7 +441,7 @@
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-												Voeg Uitgaven toe
+												Totale uitgaveposten dit jaar 
 											</div>
 
 											<div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -464,61 +464,78 @@
 
 						<!-- Area Chart -->
 						<div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                             aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                @{string comma = ",";}
-                                
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area" id="chart">
-                                        <canvas id="myChart" style="display: block; box-sizing: border-box; height: 518px; width: 1037px;"></canvas>
+							<div class="card shadow mb-4">
+								<!-- Card Header - Dropdown -->
+								<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+									<h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+									<div class="dropdown no-arrow">
+										<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+										   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+										</a>
+										<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+											 aria-labelledby="dropdownMenuLink">
+											<div class="dropdown-header">Dropdown Header:</div>
+											<a class="dropdown-item" href="#">Action</a>
+											<a class="dropdown-item" href="#">Another action</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Something else here</a>
+										</div>
+									</div>
+								</div>
+								@{string comma = ",";}
+								
+								<!-- Card Body -->
+								<div class="card-body">
+									<div class="chart-area" id="chart">
+										<canvas id="myChart" style="display: block; box-sizing: border-box; height: 518px; width: 1037px;"></canvas>
                                         <script>
-                                            let myChart = document.getElementById('myChart').getContext('2d');
+											let myChart = document.getElementById('myChart').getContext('2d');
 
 										let barChart = new Chart(myChart, {
 											type: 'bar',
 											data: {
 												labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
 												datasets: [{
-													label: 'Positieve maand',
+													label: 'Maand',
 													data: [
 														@for (int i = 0; i < Model.ChartResultsPerMonth.Count;)
-                                                        {
+														{
 															@Model.ChartResultsPerMonth[i];
 															@comma;
 															i++;
 															}
-		                                                 ],
-                                                        backgroundColor: 'rgb(57,95,207)',
-                                                        borderWidth: 1,
-                                                        borderColor: '#777',
-                                                        hoverBorderWidth: 3,
-                                                        hoverBorderColor: '#000'
-                                                    }]
-                                                },
-                                                options: {}
-                                            });
+													],
+
+													@for (int i = 0; i < Model.ChartResultsPerMonth.Count;)
+													{
+														if (Model.ChartResultsPerMonth[i] > 0)
+														{
+														@:backgroundColor: 'rgb(57,95,207)',
+														@:borderWidth: 1,
+														@:borderColor: '#777',
+														@:hoverBorderWidth: 3,
+														@:hoverBorderColor: '#000'
+														}
+														@*else
+														{
+														@:backgroundColor: 'rgb(57,95,207)',
+														@:borderWidth: 1,
+														@:borderColor: '#777',
+														@:hoverBorderWidth: 3,
+														@:hoverBorderColor: '#000'
+														}*@
+														i++;
+													}
+
+													}]
+												},
+												options: {}
+											});
                                         </script>
-                                    </div>
-                                </div>
-                            </div>
+									</div>
+								</div>
+							</div>
 						</div>
 
 						<!-- Pie Chart -->
@@ -556,14 +573,14 @@
 										<tbody>
 											@foreach (var Month in Model.AllMonths)
 											{
-												<tr>
-													<td>@Month.NameOfMonth</td>
-													<td>@Month.YearOfMonth</td>
-													
-													<th>
-														@Html.ActionLink("Details", "GetMonthDetails", "Month", new { MonthId = Month.MonthID })
-													</th>
-												</tr>
+											<tr>
+												<td>@Month.NameOfMonth</td>
+												<td>@Month.YearOfMonth</td>
+											
+												<td>
+													@Html.ActionLink("Details", "GetMonthDetails", "Month", new { MonthId = Month.MonthID })
+												</td>
+											</tr>
 											}
 										</tbody>
 									</table>
@@ -586,9 +603,9 @@
 					<div class="row">
 						<div class="col-lg-6 mb-4">
 							<div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Latest Added Incomes </h6>
-                                </div>
+								<div class="card-header py-3">
+									<h6 class="m-0 font-weight-bold text-primary">Latest Added Incomes </h6>
+								</div>
 								<table>
 									<thead>
 										<tr>
@@ -609,7 +626,13 @@
 											<td>@Income.TimeOfIncomeCreation</td>
 											<td>@Income.CategoryName</td>
 											<th>
-												@Html.ActionLink("Change amount", "IncomeDetails", "Dashboard", new { incomeId = Income.IncomeId })
+												@Html.ActionLink("Change income", "IncomeDetails", "Dashboard", new { incomeId = Income.IncomeId })
+											</th>
+
+											<th>
+												<a href=@Url.Action("Delete", "Income", new { incomeId = Income.IncomeId }) class="btn btn-danger btn-circle btn-sm"> 
+													<i class="fas fa-trash"></i>
+												</a>
 											</th>
 										</tr>
 										}
@@ -634,19 +657,27 @@
 											<th>Category</th>
 										</tr>
 									</thead>
-									<tbody>		
-											@foreach (var Expense in Model.AllExpenses)
-											{
+									<tbody>
+										@foreach (var Expense in Model.AllExpenses)
+										{
 										<tr>
 											<td>€@Math.Round(Expense.Amount, 2)</td>
 											<td>@Expense.Description</td>
 											<td>@Expense.TimeOfExpenseCreation</td>
 											<td>@Expense.CategoryName</td>
 											<th>
-												@Html.ActionLink("Change amount", "ExpenseDetails", "Dashboard", new { expenseId = Expense.ExpenseId })
+												@Html.ActionLink("Change expense", "ExpenseDetails", "Dashboard", new { expenseId = Expense.ExpenseId })
 											</th>
+
+											<th>
+												<a href=@Url.Action("Delete", "Expense", new { expenseId = Expense.ExpenseId }) class="btn btn-danger btn-circle btn-sm">
+													<i class="fas fa-trash"></i>
+												</a>
+											</th>
+
+											
 										</tr>
-									}
+										}
 									</tbody>
 								</table>
 							</div>
