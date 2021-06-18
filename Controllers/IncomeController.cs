@@ -7,7 +7,7 @@ using Drip.Application.Interfaces;
 using Drip.Webapp.Models.IncomeModels;
 using Drip.Application.Entities;
 using Drip.Application.Logic;
-
+using Drip.Webapp.Models;
 
 namespace Drip.Webapp.Controllers
 {
@@ -86,6 +86,16 @@ namespace Drip.Webapp.Controllers
                 return RedirectToAction("Succes");
             }
             return View(model);
+        }
+        
+        public IActionResult Delete(Guid incomeId)
+        {
+            if (incomeId != Guid.Empty)
+            {
+                _logic.DeleteIncome(incomeId);
+                return RedirectToAction("Index", "Dashboard");
+            }
+            return View();
         }
 
         public IActionResult Fail()

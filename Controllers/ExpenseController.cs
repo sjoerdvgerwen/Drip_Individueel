@@ -95,7 +95,16 @@ namespace Drip.Webapp.Controllers
             return View(model);
         }
 
+        public IActionResult Delete(Guid expenseId)
+        {
+            if (expenseId != Guid.Empty)
+            {
+                _logic.DeleteExpense(expenseId);
+                return RedirectToAction("Index", "Dashboard");
+            }
 
+            return View();
+        }
 
 
 
